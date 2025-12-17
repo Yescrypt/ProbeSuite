@@ -1,0 +1,36 @@
+================================================================================
+EMAIL OSINT QUICK CHECK REPORT
+================================================================================
+
+Email: johndoe@gmail.com
+Date: 2025-12-17 16:04:24
+================================================================================
+
+CHECK THESE RESOURCES:
+--------------------------------------------------------------------------------
+
+Google Search:
+https://www.google.com/search?q="johndoe@gmail.com"
+
+Email Reputation:
+https://emailrep.io/johndoe@gmail.com
+
+Have I Been Pwned:
+https://haveibeenpwned.com/account/johndoe@gmail.com
+
+LinkedIn:
+https://www.linkedin.com/search/results/all/?keywords=johndoe@gmail.com
+
+GitHub:
+https://github.com/search?q=johndoe@gmail.com&type=users
+
+Twitter:
+https://twitter.com/search?q=johndoe@gmail.com
+
+Facebook:
+https://www.facebook.com/search/top?q=johndoe@gmail.com
+
+Instagram:
+https://www.instagram.com/explore/tags/johndoe
+
+================================================================================

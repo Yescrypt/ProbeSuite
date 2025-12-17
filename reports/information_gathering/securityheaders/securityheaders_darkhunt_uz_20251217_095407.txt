@@ -1,0 +1,20 @@
+SECURITY HEADERS REPORT
+Original URL: https://darkhunt.uz
+Final URL: https://darkhunt.uz/
+Scan Time: 2025-12-17 09:54:07
+Score: 4/10 (40%)
+================================================================================
+
+PRESENT HEADERS:
+Present X-Content-Type-Options: nosniff
+Present X-Frame-Options: DENY
+Present Referrer-Policy: same-origin
+Present Cross-Origin-Opener-Policy: same-origin
+
+MISSING HEADERS:
+Missing Strict-Transport-Security → HSTS - HTTPS ni majburlaydi
+Missing Content-Security-Policy → XSS va injection hujumlaridan himoya
+Missing X-XSS-Protection → Eski brauzerlarda XSS filtri
+Missing Permissions-Policy → Brauzer funksiyalarini cheklaydi
+Missing Cross-Origin-Embedder-Policy → COEP - Xavfsiz kontekst
+Missing Cross-Origin-Resource-Policy → CORP - Resurslar himoyasi

@@ -1,0 +1,32 @@
+====================================================================================================
+WAYBACK MACHINE - URL DISCOVERY (waybackurls tool)
+====================================================================================================
+
+Domen:          instagram.com
+Qidiruv turi:   Login/Auth Sahifalar
+Kalit so'zlar:  login, signin, auth, register, signup, password, forgot, reset
+Jami URL'lar:   12704
+Filtrlangan:    10
+Sana/Vaqt:      2025-12-17 15:46:56
+
+====================================================================================================
+
+URL KATEGORIYALARI:
+--------------------------------------------------
+  Login           → 4 ta
+
+====================================================================================================
+
+TO'LIQ URL RO'YXATI:
+----------------------------------------------------------------------------------------------------
+
+    1. http://instagram.com/chauthetiger
+    2. http://instagram.com/jimciardellaauthor
+    3. https://www.instagram.com/RMDonaldsonAuthor/
+    4. http://instagram.com/twintersauthor
+    5. http://l.instagram.com/?e=ATMEhwniiwhzBaLivjB3xY-yNAa3geHfn-5_ihNfRJtU_EBtxO0FY7G6MEV5v4HDYSSLXIk&u=http%3A%2F%2Fwww.epicurious.com%2Fabout%2Fnewsletter%2Fsignup%2Fcook90
+    6. http://l.instagram.com/?e=ATMLU-AajkvPf7hIsDyKOGezKmNLQqC5Yd9_pOLdvzietc82t87qoFui-98H8KM&u=http%3A%2F%2Frockinbattle.supermusic.id%2Fregister
+    7. https://l.instagram.com/?u=https%3A%2F%2Fbahamas-photographer-lightroom-presets.myshopify.com%2Fcollections%2Fall&e=ATNhQU2xL0D2HUnpc5Ul45GOXSh5WKrcV2f1Q1M8twchgeZGn6q0NxA1VFKamjtDTMvR8q2ZJ_N0OocExCqsfYTIfzS7rn1o
+    8. http://l.instagram.com/?u=http%3A%2F%2Fwww.reset.hu%2F&e=ATNwb6XH8iETBJtI1-eSPiaTGJzHIV85oCIap3qNXTYoxZup680DdBPAJeIH38E
+    9. http://l.instagram.com/?u=http%3A%2F%2Fhowtolucid.com%2Fsignup&e=ATOTW02mouj13r-bKvcwCeq7kbl1TcmUgYXht5-hekzV_hYXurV6ZEfmlGkgsps
+   10. http://l.instagram.com/?e=ATPjF3FFGWkocFza8ScFcEyjYH0jE91qaiyOLUaKnWTBb3MUKWkpt57q0z8QtDA&u=http%3A%2F%2Fbit.ly%2Fbtx-signup

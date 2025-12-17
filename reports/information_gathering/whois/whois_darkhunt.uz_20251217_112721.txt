@@ -1,0 +1,56 @@
+WHOIS LOOKUP REPORT
+Domain: DARKHUNT.UZ
+Source: whois.com
+Date: 2025-12-17 11:27:21
+================================================================================
+
+% Uzbekistan Whois Server Version 1.0
+% Domain names in the .uz domain can now be registered
+% [Legal notice shortened]
+% for detailed information.
+   Domain Name: DARKHUNT.UZ
+   Registrar: SUVAN NET
+   Whois Server: www.whois.uz
+   Referral URL: http://www.cctld.uz/
+   Name Server: rdns1.ahost.uz. 185.196.212.52
+   Name Server: rdns2.ahost.uz. 168.119.57.248
+   Name Server: not.defined. <no value>
+   Name Server: not.defined. <no value>
+   Status: ACTIVE
+   Updated Date: 02-Jun-2025
+   Creation Date: 01-Jun-2025
+   Expiration Date: 02-Jun-2026
+% reserves the right to modify these terms at any time.
+% The Registry database contains ONLY .UZ domains and
+% Registrars.
+% Registration Service Provided By: SUVAN NET
+Domain Name: DARKHUNT.UZ
+Registrant:
+    not.defined.
+    Касан
+    Uzbekistan, 180100
+    UZ
+Creation Date: 01-Jun-2025
+Expiration Date: 02-Jun-2026
+Domain servers in listed order:
+    rdns1.ahost.uz.
+    rdns2.ahost.uz.
+    not.defined.
+    not.defined.
+Administrative Contact:
+    not.defined.
+    Касан
+    Uzbekistan, 180100
+    UZ
+Technical Contact:
+    not.defined.
+    Касан
+    Uzbekistan, 180100
+    UZ
+Billing Contact:
+    not.defined.
+    Касан
+    Uzbekistan, 180100
+    UZ
+Status: ACTIVE
+%  The Whois Server (ver. 1.0) of ccTLD.UZ

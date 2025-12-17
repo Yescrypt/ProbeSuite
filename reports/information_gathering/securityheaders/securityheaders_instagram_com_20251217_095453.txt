@@ -1,0 +1,20 @@
+SECURITY HEADERS REPORT
+Original URL: https://instagram.com
+Final URL: https://www.instagram.com/
+Scan Time: 2025-12-17 09:54:53
+Score: 8/10 (80%)
+================================================================================
+
+PRESENT HEADERS:
+Present Strict-Transport-Security: max-age=31536000; preload; includeSubDomains
+Present Content-Security-Policy: default-src *.facebook.com *.fbcdn.net *.instagram.com blob:;script-src *.instagram.com static.cdninstagram.com *.facebo...
+Present X-Content-Type-Options: nosniff
+Present X-Frame-Options: DENY
+Present X-XSS-Protection: 0
+Present Permissions-Policy: accelerometer=(self), attribution-reporting=(), autoplay=(), bluetooth=(), camera=(self), ch-device-memory=(), ch-downli...
+Present Cross-Origin-Opener-Policy: same-origin-allow-popups;report-to="coop_report"
+Present Cross-Origin-Resource-Policy: same-origin
+
+MISSING HEADERS:
+Missing Referrer-Policy → Referer ma'lumotlarini nazorat qiladi
+Missing Cross-Origin-Embedder-Policy → COEP - Xavfsiz kontekst

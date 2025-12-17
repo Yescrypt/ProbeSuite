@@ -1,0 +1,12 @@
+Domain Verification - johndoe@gmail.com
+Date: 2025-12-17 16:04:59.275256
+================================================================================
+
+MX Records Found:
+  1. alt1.gmail-smtp-in.l.google.com. (Priority: 10)
+  2. gmail-smtp-in.l.google.com. (Priority: 5)
+  3. alt2.gmail-smtp-in.l.google.com. (Priority: 20)
+  4. alt3.gmail-smtp-in.l.google.com. (Priority: 30)
+  5. alt4.gmail-smtp-in.l.google.com. (Priority: 40)
+
+Domain accepts email

@@ -1,0 +1,139 @@
+================================================================================
+                    MAIGRET USERNAME HUNT — ProbeSuite
+================================================================================
+
+Target Username: yescrypt
+Scan Date: 2025-12-17 16:10:02
+Command: maigret yescrypt --timeout 10
+
+================================================================================
+
+SCAN STATISTICS
+--------------------------------------------------------------------------------
+Total Accounts Found: 31
+Profiles with Extended Info: 2
+Countries: us, ru, in, id, jp
+Interest Tags: gaming, wiki, forum, coding, sharing, video, tech, messaging, geosocial, documents, books, reading, photo
+
+================================================================================
+
+FOUND PROFILES (31)
+================================================================================
+
+[1] GitHubGist [GitHub]
+    URL: https://gist.github.com/yescrypt
+
+[2] Armchairgm
+    URL: https://armchairgm.fandom.com/wiki/User:yescrypt
+
+[3] YouTube
+    URL: https://www.youtube.com/@yescrypt
+
+[4] FandomCommunityCentral
+    URL: https://community.fandom.com/wiki/User:yescrypt
+
+[5] GitHub
+    URL: https://github.com/yescrypt
+
+    Extended Information:
+    ----------------------------------------------------------------------
+    uid: 175825781
+    image: https://avatars.githubusercontent.com/u/175825781?v=4
+    created_at: 2024-07-17T11:33:33Z
+    location: Uzbekistan
+    follower_count: 7
+    following_count: 4
+    fullname: Omadbek Xusanboyev
+    public_gists_count: 0
+    public_repos_count: 46
+    bio: Everyone in this world has their own universe. If you can find a "world" similar to yours in these worlds, it's Happiness :) @Yescrypt
+    is_company: Freelancer
+    blog_url: https://omadbek-portfolio.netlify.app/
+
+[6] Battleraprus
+    URL: https://battleraprus.fandom.com/ru/wiki/%D0%A3%D1%87%D0%B0%D1%81%D1%82%D0%BD%D0%B8%D0%BA:yescrypt
+
+[7] BleachFandom
+    URL: https://bleach.fandom.com/ru/wiki/%D0%A3%D1%87%D0%B0%D1%81%D1%82%D0%BD%D0%B8%D0%BA:yescrypt
+
+[8] Roblox
+    URL: https://www.roblox.com/user.aspx?username=yescrypt
+
+[9] Kaggle
+    URL: https://www.kaggle.com/yescrypt
+
+[10] Telegram
+    URL: https://t.me/yescrypt
+
+    Extended Information:
+    ----------------------------------------------------------------------
+    fullname: YesCrypt
+    image: https://cdn4.telesco.pe/file/tinqAtXMekanokDKr6GmZdoWsaxV4e10e6wgTJxgKaGsC5i2nbU1jgZ7_pkNu8-id7GgHZoR1ZMPNM2wI06U9B_kTEP_LQmg23NCfolWuUqOHACVeQtc1qN109L7OG6cibwYVVQFdvA2BspxcmXk69cff1H1el09UbLRWIqgeIAzkuyVG6MWkoRrfsDLo6K4oaxQIQJ2fYfNLIE_k3uFv8DvK8VJqPkCTtLoCyWzGCM6FKTGyfB9Xnh9m-VnWUH9T0TGd5PH5aTFT-lGHzsf9koL2mqYljN1SHrgYUE5JNpXMw8Elxa9eLIEYhqD7n28GRckuo6Vk67BXyuk-ZYpBQ.jpg
+    bio: Общий сборник актуальных криптовалютных новостей, делимся, обсуждаем☺️
+
+[11] YouTube User
+    URL: https://www.youtube.com/@yescrypt
+
+[12] Kaskus
+    URL: https://www.kaskus.co.id/@yescrypt
+
+[13] OP.GG [LeagueOfLegends] Europe Nordic & East
+    URL: https://www.op.gg/summoners/search?q=yescrypt&region=eune
+
+[14] Zomato
+    URL: https://www.zomato.com/pl/yescrypt/foodjourney
+
+[15] opensea.io
+    URL: https://opensea.io/accounts/yescrypt
+
+[16] Tom's guide
+    URL: http://forums.tomsguide.com/members/?username=yescrypt
+
+[17] OP.GG [LeagueOfLegends] Middle East
+    URL: https://www.op.gg/summoners/search?q=yescrypt&region=me
+
+[18] Livemaster
+    URL: https://www.livemaster.ru/yescrypt
+
+[19] TechPowerUp
+    URL: https://www.techpowerup.com/forums/members/?username=yescrypt
+
+[20] authorSTREAM
+    URL: http://www.authorstream.com/author/yescrypt/
+
+[21] forums.serebii.net
+    URL: https://forums.serebii.net/members/?username=yescrypt
+
+[22] LiveLib
+    URL: https://www.livelib.ru/reader/yescrypt
+
+[23] OP.GG [LeagueOfLegends] Japan
+    URL: https://www.op.gg/summoners/search?q=yescrypt&region=jp
+
+[24] getmyuni
+    URL: https://www.getmyuni.com/user/yescrypt
+
+[25] Picsart
+    URL: https://picsart.com/u/yescrypt
+
+[26] Kongregate
+    URL: https://www.kongregate.com/accounts/yescrypt
+
+[27] forums.bulbagarden.net
+    URL: http://forums.bulbagarden.net/members/?username=yescrypt
+
+[28] 3ddd
+    URL: https://3ddd.ru/users/yescrypt
+
+[29] hashnode
+    URL: https://hashnode.com/@yescrypt
+
+[30] Bibsonomy
+    URL: https://www.bibsonomy.org/user/yescrypt
+
+[31] Blu-ray
+    URL: https://forum.blu-ray.com/member.php?username=yescrypt
+
+================================================================================
+Report saved to: reports/osint/maigret/report_yescrypt.txt
+================================================================================

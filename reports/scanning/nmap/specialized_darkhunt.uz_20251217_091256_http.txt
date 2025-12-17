@@ -1,0 +1,1 @@
+# Nmap 7.95 scan initiated Wed Dec 17 09:12:56 2025 as: /usr/lib/nmap/nmap --privileged --script http-enum,http-headers -p80,443,8080 -oN reports/scanning/nmap/specialized_darkhunt.uz_20251217_091256_http.txt darkhunt.uz

@@ -1,0 +1,7 @@
+{
+    "python.analysis.extraPaths": [
+        "./app/scanning/active",
+        "./app/scanning/passive"
+    ],
+    "python-envs.pythonProjects": []
+}

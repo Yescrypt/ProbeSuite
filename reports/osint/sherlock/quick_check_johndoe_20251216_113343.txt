@@ -1,0 +1,42 @@
+================================================================================
+USERNAME OSINT QUICK CHECK
+================================================================================
+
+Username: johndoe
+Date: 2025-12-16 11:33:43.810030
+================================================================================
+
+CHECK THESE PLATFORMS:
+--------------------------------------------------------------------------------
+
+Instagram:
+https://www.instagram.com/johndoe
+
+Twitter/X:
+https://twitter.com/johndoe
+
+Facebook:
+https://www.facebook.com/johndoe
+
+LinkedIn:
+https://www.linkedin.com/in/johndoe
+
+GitHub:
+https://github.com/johndoe
+
+TikTok:
+https://www.tiktok.com/@johndoe
+
+YouTube:
+https://www.youtube.com/@johndoe
+
+Reddit:
+https://www.reddit.com/user/johndoe
+
+Medium:
+https://medium.com/@johndoe
+
+Telegram:
+https://t.me/johndoe
+
+================================================================================

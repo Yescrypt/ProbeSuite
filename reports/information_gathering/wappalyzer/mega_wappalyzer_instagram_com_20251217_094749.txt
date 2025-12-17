@@ -1,0 +1,35 @@
+MEGA WAPPALYZER REPORT
+Target: https://instagram.com
+Time: 2025-12-17 09:47:49.644813
+Found: 11
+======================================================================
+
+[Category Analytics]
+ • Adobe Analytics
+
+[Category CMS]
+ • 1C-Bitrix
+
+[Category CSS Frameworks]
+ • Bootstrap
+
+[Category Ecommerce]
+ • Magento
+ • Shopify
+
+[Category Email]
+ • Mailchimp
+
+[Category JavaScript Frameworks]
+ • Angular
+ • React
+
+[Category JavaScript Libraries]
+ • jQuery
+
+[Category Payment]
+ • Stripe
+
+[Category Web Frameworks]
+ • Django
+
