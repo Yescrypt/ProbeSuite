@@ -7,57 +7,55 @@
                              |_|   |_| \_ \___/|____/ |____/|____/ \___/|___| |_|  
 
 ```
-                                                              /
-                                               \             / /
-                                                \\\' ,      / //
-                                                 \\\//,   _/ //,
-                                                  \_-//' /  //<,
-                                                    \ ///  >  \\\`__/_
-                                                    /,)-^>> _\` \\\
-                                                    (/   \\ //\\
-                                                        // _//\\\\
-                                                      ((` ((      
+                                                       /
+                                        \             / /
+                                         \' ,      / //
+                                          \//,   _/ //,
+                                           \_-//' /  //<,
+                                             \ ///  >  \`__/__
+                                             /,)-^>> _\` \
+                                             (/   \ //\
+                                                 // _//\
+                                               ((` ((
 ```
 
 </pre>
 
 **Modular Offensive Security Toolkit**
 
-[English](#english) · [Oʻzbekcha](#oʻzbekcha)
-
 </div>
 
 ---
 
-## English
-
 # ProbeSuite
 
-**ProbeSuite** is a modular penetration testing toolkit designed to support the full offensive security lifecycle. It brings together essential tools for **Information Gathering, OSINT, Scanning, Vulnerability Assessment, Exploitation, Post-Exploitation, and Reporting** in a structured and extensible environment.
+**ProbeSuite** is a modular penetration testing toolkit designed to support the full offensive security lifecycle. It consolidates essential tools for **Information Gathering, OSINT, Scanning, Vulnerability Assessment, Exploitation, Post-Exploitation, and Reporting** into a clean, structured, and extensible environment.
 
-The goal of this project is to streamline reconnaissance and assessment workflows, helping pentesters and security researchers efficiently analyze targets and produce clear, actionable reports.
+The primary goal of ProbeSuite is to streamline reconnaissance and assessment workflows, enabling pentesters and security researchers to efficiently analyze targets, identify attack surfaces, and produce clear, actionable security reports.
 
 ---
 
 ## ✨ Features
 
 * Modular and extensible architecture
-* Tools grouped by penetration testing phases
-* Focus on reconnaissance and attack surface analysis
-* Designed for real-world pentesting workflows
-* Built-in structure for reporting and documentation
+* Tools organized by penetration testing phases
+* Focused on reconnaissance and attack surface analysis
+* Designed for real-world penetration testing workflows
+* Reporting-oriented project structure
 
 ---
 
 ## 📦 Requirements
 
-* Python 3.9+
+* Python 3.9 or higher
 * Git
-* Linux-based environment (recommended)
+* Linux-based operating system (recommended)
 
 ---
 
 ## 🚀 Installation
+
+Clone the repository and set up a Python virtual environment:
 
 ```bash
 git clone https://github.com/Yescrypt/ProbeSuite.git
@@ -71,102 +69,33 @@ pip install -r requirements.txt
 
 ## ▶️ Usage
 
+Run the main application entry point:
+
 ```bash
 python app/main.py
 ```
 
-ProbeSuite provides access to tools categorized by each penetration testing phase and can be extended or customized based on assessment needs.
+Once launched, ProbeSuite provides access to tools categorized by each penetration testing phase. Modules can be extended or customized based on specific assessment requirements.
 
 ---
 
 ## 📊 Reporting
 
-ProbeSuite is designed with reporting in mind. Findings and outputs can be collected and organized to generate structured penetration testing reports for technical teams and stakeholders.
+ProbeSuite is built with reporting in mind. Collected findings and outputs can be organized to support the creation of structured penetration testing reports suitable for technical teams and decision-makers.
 
 ---
 
 ## ⚠️ Disclaimer
 
-This project is intended **for educational purposes and authorized security testing only**. Do not use ProbeSuite against systems without explicit permission. The author is not responsible for misuse or illegal activities.
+This project is intended **for educational purposes and authorized security testing only**. Do not use ProbeSuite against systems without explicit permission. The author assumes no responsibility for misuse or illegal activities.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions, improvements, and suggestions are welcome. Fork the repository and submit a pull request.
-
----
-
-## Oʻzbekcha
-
-# ProbeSuite
-
-**ProbeSuite** — bu hujumkor kiberxavfsizlik (pentesting) jarayonining barcha bosqichlarini qamrab oluvchi modulli vositalar toʻplamidir. Loyiha **Information Gathering, OSINT, Scanning, Vulnerability Assessment, Exploitation, Post-Exploitation va Reporting** bosqichlari uchun moʻljallangan tool’larni yagona va tartibli muhitda jamlaydi.
-
-Ushbu loyiha pentesterlar va xavfsizlik mutaxassislariga maqsad tizimlarni samarali tahlil qilish, hujum yuzasini aniqlash va aniq hamda tushunarli hisobotlar tayyorlashni soddalashtirish uchun yaratilgan.
-
----
-
-## ✨ Imkoniyatlar
-
-* Modulli va kengaytiriladigan arxitektura
-* Pentesting bosqichlari boʻyicha ajratilgan tool’lar
-* Reconnaissance va attack surface tahliliga yoʻnaltirilgan
-* Real pentesting jarayonlari uchun mos
-* Hisobot yozish uchun qulay tuzilma
-
----
-
-## 📦 Talablar
-
-* Python 3.9 yoki undan yuqori
-* Git
-* Linux muhiti (tavsiya etiladi)
-
----
-
-## 🚀 Oʻrnatish
-
-```bash
-git clone https://github.com/Yescrypt/ProbeSuite.git
-cd ProbeSuite
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
----
-
-## ▶️ Ishga tushirish
-
-```bash
-python app/main.py
-```
-
-ProbeSuite ishga tushgach, pentesting bosqichlari boʻyicha guruhlangan tool’lardan foydalanish mumkin.
-
----
-
-## 📊 Hisobotlar
-
-ProbeSuite olingan natijalarni tartibli saqlash va texnik jamoalar hamda buyurtmachilar uchun tushunarli penetration testing hisobotlarini tayyorlashga yordam beradi.
-
----
-
-## ⚠️ Ogohlantirish
-
-Ushbu loyiha **faqat oʻquv va ruxsat etilgan xavfsizlik testlari** uchun moʻljallangan. Ruxsatsiz tizimlarga qarshi ishlatish qonunga zid.
-
----
-
-## 🤝 Hissa qoʻshish
-
-Takliflar, yaxshilanishlar va pull request’lar mamnuniyat bilan qabul qilinadi.
+Contributions, improvements, and suggestions are welcome. Feel free to fork the repository and submit a pull request.
 
 ---
 
 **Author:** Yescrypt
-**Focus:** Offensive Security · Pentesting · Red Teaming
-
-
-
+**Focus:** Offensive Security · Penetration Testing · Red Teaming
