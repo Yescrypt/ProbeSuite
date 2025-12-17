@@ -1,11 +1,3 @@
-<h1 align="center">
-  <img src="https://cdn3d.iconscout.com/3d/premium/thumb/hacker-3d-icon-download-in-png-blend-fbx-gltf-file-formats--cyber-security-pack-icons-4668704.png?f=webp" alt="Hacker icon" width="130" style="filter: brightness(1.3);" />
-</h1>
-
-<h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&pause=1000&color=F39C12&center=true&vCenter=true&width=800&height=70&duration=4000&lines=ProbeSuite;Modular+Offensive+Security+Toolkit;For+Pentesters+%26+Red+Teamers" />
-</h1>
-
 <div align="center">
   <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="800"/>
 </div>
@@ -24,22 +16,22 @@
 
 <div align="center">
   <pre style="color: #00ff9c; font-size: 14px; line-height: 1.2;">
- ____ ____ ___ ____ _____ _____ ___ __ __
-| _ \| _ \ / _ \| __ ) | ____/ ___|| | | |_ _|_ _|
-| |_) | |_) | | | | _ \ | _| \___ \| | | || | | |
-| __/| _ <| |_| | |_) ||____ __) || |_| || | | |
-|_| |_| \_\___/|____/ |____/|____/ \___/|___| |_|
-                                                        
-                         /
-              \ / /
-               \\', / //
-                \\//,_/ //,
-                 \_-//' / //<,
-                   \ /// > \\`__/__
-                   /,)-^>> _\`
-                   (/ \ //\
-                       // _//\\
-                     ((` ((
+                     ____  ____   ___  ____   _____ _____       ___ __ __   
+                    |  _ \|  _ \ / _ \| __ ) | ____/ ___|| | | |_ _|_   _|                                                  
+                    | |_) | |_) | | | |  _ \ |  _| \___ \| | | || |  | |                                                  
+                    |  __/|  _ <| |_| | |_) ||____  __) || |_| || |  | |                                                              
+                    |_|   |_| \_\\___/|____/ |____/|____/ \___/|___| |_|                                                          
+                             
+                                                  /
+                                   \             / /
+                                    \\\' ,      / //
+                                     \\\//,   _/ //,
+                                      \_-//' /  //<,
+                                        \ ///  >  \\\`__/_
+                                        /,)-^>> _\` \\\
+                                        (/   \\ //\\
+                                            // _//\\\\
+                                          ((` ((  
   </pre>
 </div>
 
@@ -108,17 +100,14 @@ git clone https://github.com/Yescrypt/ProbeSuite.git
 cd ProbeSuite
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt ```
-
-## 🚀 Quick Start
-```bash
+pip install -r requirements.txt 
 python app/main.py
 ```
-```
-📊 Reporting
+
+## 📊 Reporting
 ProbeSuite automatically organizes screenshots, outputs, and notes. Generated reports are clean, structured, and ready for technical teams or clients.
 
-🌱 Roadmap & Currently Developing
+## 🌱 Roadmap & Currently Developing
 
 Advanced exploit modules
 Cloud environment support (AWS, Azure)
@@ -127,12 +116,12 @@ Web UI dashboard
 Integration with popular bug bounty platforms
 
 
-⚠️ Important Disclaimer
+## ⚠️ Important Disclaimer
 This tool is for educational purposes and authorized penetration testing only.
 Unauthorized use against systems you do not own or have explicit permission to test is illegal.
 The author assumes no liability for misuse.
 
-👨‍💻 Author
+## 👨‍💻 Author
 
 Yescrypt – Penetration Tester | Cybersecurity Specialist | Frontend Developer
 GitHub
@@ -152,3 +141,4 @@ LinkedIn
   If you find ProbeSuite useful, give it a ⭐ on GitHub – it means a lot!
 
 ```
+
