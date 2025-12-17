@@ -1,20 +1,20 @@
 ```text
- ____  ____   ___  ____   _____ _____       ___ __ __   
-|  _ \|  _ \ / _ \| __ ) | ____/ ___|| | | |_ _|_   _|  
-| |_) | |_) | | | |  _ \ |  _| \___ \| | | || |  | |  
-|  __/|  _ <| |_| | |_) ||____  __) || |_| || |  | |  
-|_|   |_| \_\___/|____/ |____/|____/ \___/|___| |_|  
-         
-                              /
-               \             / /
-                \\' ,      / //
-                 \//,   _/ //,
-                  \_-//' /  //<,
-                    \ ///  >  \\`__/__
-                    /,)-^>> _\` \
-                    (/   \ //\
-                        // _//\\
-                      ((` ((
+                        ____  ____   ___  ____   _____ _____       ___ __ __   
+                       |  _ \|  _ \ / _ \| __ ) | ____/ ___|| | | |_ _|_   _|  
+                       | |_) | |_) | | | |  _ \ |  _| \___ \| | | || |  | |  
+                       |  __/|  _ <| |_| | |_) ||____  __) || |_| || |  | |  
+                       |_|   |_| \_ \___/|____/ |____/|____/ \___/|___| |_|  
+                                
+                                                     /
+                                      \             / /
+                                       \\' ,      / //
+                                        \//,   _/ //,
+                                         \_-//' /  //<,
+                                           \ ///  >  \\`__/__
+                                           /,)-^>> _\` \
+                                           (/   \ //\
+                                               // _//\\
+                                             ((` ((
 ```
 
 # ProbeSuite
@@ -81,12 +81,6 @@ This project is intended **for educational purposes and authorized security test
 
 ---
 
-## 📜 License
-
-This project is released under the MIT License.
-
----
-
 ## 🤝 Contributing
 
 Contributions, improvements, and suggestions are welcome. Feel free to fork the repository and submit a pull request.
@@ -95,4 +89,5 @@ Contributions, improvements, and suggestions are welcome. Feel free to fork the 
 
 **Author:** Yescrypt
 **Focus:** Offensive Security · Pentesting · Red Teaming
+
 
