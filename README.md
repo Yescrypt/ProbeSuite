@@ -7,16 +7,16 @@
                              |_|   |_| \_ \___/|____/ |____/|____/ \___/|___| |_|  
 
 ```
-                                                       /
-                                        \             / /
-                                         \\' ,      / //
-                                          \//,   _/ //,
-                                           \_-//' /  //<,
-                                             \ ///  >  \\`__/__
-                                             /,)-^>> _\\` \
-                                             (/   \ //\
-                                                 // _//\\
-                                               ((` ((
+                                                              /
+                                               \             / /
+                                                \\\' ,      / //
+                                                 \\\//,   _/ //,
+                                                  \_-//' /  //<,
+                                                    \ ///  >  \\\`__/_
+                                                    /,)-^>> _\` \\\
+                                                    (/   \\ //\\
+                                                        // _//\\\\
+                                                      ((` ((      
 ```
 
 </pre>
@@ -167,5 +167,6 @@ Takliflar, yaxshilanishlar va pull request’lar mamnuniyat bilan qabul qilinadi
 
 **Author:** Yescrypt
 **Focus:** Offensive Security · Pentesting · Red Teaming
+
 
 
