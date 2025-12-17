@@ -1,21 +1,35 @@
-```text
-                        ____  ____   ___  ____   _____ _____       ___ __ __   
-                       |  _ \|  _ \ / _ \| __ ) | ____/ ___|| | | |_ _|_   _|  
-                       | |_) | |_) | | | |  _ \ |  _| \___ \| | | || |  | |  
-                       |  __/|  _ <| |_| | |_) ||____  __) || |_| || |  | |  
-                       |_|   |_| \_ \___/|____/ |____/|____/ \___/|___| |_|  
-                                
-                                                     /
-                                      \             / /
-                                       \\' ,      / //
-                                        \//,   _/ //,
-                                         \_-//' /  //<,
-                                           \ ///  >  \\`__/__
-                                           /,)-^>> _\` \
-                                           (/   \ //\
-                                               // _//\\
-                                             ((` ((
+<div align="center">
+<pre>
+                              ____  ____   ___  ____   _____ _____       ___ __ __   
+                             |  _ \|  _ \ / _ \| __ ) | ____/ ___|| | | |_ _|_   _|  
+                             | |_) | |_) | | | |  _ \ |  _| \___ \| | | || |  | |  
+                             |  __/|  _ <| |_| | |_) ||____  __) || |_| || |  | |  
+                             |_|   |_| \_ \___/|____/ |____/|____/ \___/|___| |_|  
+
 ```
+                                                       /
+                                        \             / /
+                                         \\' ,      / //
+                                          \//,   _/ //,
+                                           \_-//' /  //<,
+                                             \ ///  >  \\`__/__
+                                             /,)-^>> _\\` \
+                                             (/   \ //\
+                                                 // _//\\
+                                               ((` ((
+```
+
+</pre>
+
+**Modular Offensive Security Toolkit**
+
+[English](#english) · [Oʻzbekcha](#oʻzbekcha)
+
+</div>
+
+---
+
+## English
 
 # ProbeSuite
 
@@ -45,8 +59,6 @@ The goal of this project is to streamline reconnaissance and assessment workflow
 
 ## 🚀 Installation
 
-Clone the repository and set up a virtual environment:
-
 ```bash
 git clone https://github.com/Yescrypt/ProbeSuite.git
 cd ProbeSuite
@@ -59,19 +71,17 @@ pip install -r requirements.txt
 
 ## ▶️ Usage
 
-Run the main application entry point:
-
 ```bash
 python app/main.py
 ```
 
-Once started, ProbeSuite provides access to tools categorized by each penetration testing phase. You can extend or customize modules based on your assessment needs.
+ProbeSuite provides access to tools categorized by each penetration testing phase and can be extended or customized based on assessment needs.
 
 ---
 
 ## 📊 Reporting
 
-ProbeSuite is designed with reporting in mind. Findings and outputs can be collected and organized to help generate structured penetration testing reports suitable for technical teams and stakeholders.
+ProbeSuite is designed with reporting in mind. Findings and outputs can be collected and organized to generate structured penetration testing reports for technical teams and stakeholders.
 
 ---
 
@@ -83,7 +93,75 @@ This project is intended **for educational purposes and authorized security test
 
 ## 🤝 Contributing
 
-Contributions, improvements, and suggestions are welcome. Feel free to fork the repository and submit a pull request.
+Contributions, improvements, and suggestions are welcome. Fork the repository and submit a pull request.
+
+---
+
+## Oʻzbekcha
+
+# ProbeSuite
+
+**ProbeSuite** — bu hujumkor kiberxavfsizlik (pentesting) jarayonining barcha bosqichlarini qamrab oluvchi modulli vositalar toʻplamidir. Loyiha **Information Gathering, OSINT, Scanning, Vulnerability Assessment, Exploitation, Post-Exploitation va Reporting** bosqichlari uchun moʻljallangan tool’larni yagona va tartibli muhitda jamlaydi.
+
+Ushbu loyiha pentesterlar va xavfsizlik mutaxassislariga maqsad tizimlarni samarali tahlil qilish, hujum yuzasini aniqlash va aniq hamda tushunarli hisobotlar tayyorlashni soddalashtirish uchun yaratilgan.
+
+---
+
+## ✨ Imkoniyatlar
+
+* Modulli va kengaytiriladigan arxitektura
+* Pentesting bosqichlari boʻyicha ajratilgan tool’lar
+* Reconnaissance va attack surface tahliliga yoʻnaltirilgan
+* Real pentesting jarayonlari uchun mos
+* Hisobot yozish uchun qulay tuzilma
+
+---
+
+## 📦 Talablar
+
+* Python 3.9 yoki undan yuqori
+* Git
+* Linux muhiti (tavsiya etiladi)
+
+---
+
+## 🚀 Oʻrnatish
+
+```bash
+git clone https://github.com/Yescrypt/ProbeSuite.git
+cd ProbeSuite
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Ishga tushirish
+
+```bash
+python app/main.py
+```
+
+ProbeSuite ishga tushgach, pentesting bosqichlari boʻyicha guruhlangan tool’lardan foydalanish mumkin.
+
+---
+
+## 📊 Hisobotlar
+
+ProbeSuite olingan natijalarni tartibli saqlash va texnik jamoalar hamda buyurtmachilar uchun tushunarli penetration testing hisobotlarini tayyorlashga yordam beradi.
+
+---
+
+## ⚠️ Ogohlantirish
+
+Ushbu loyiha **faqat oʻquv va ruxsat etilgan xavfsizlik testlari** uchun moʻljallangan. Ruxsatsiz tizimlarga qarshi ishlatish qonunga zid.
+
+---
+
+## 🤝 Hissa qoʻshish
+
+Takliflar, yaxshilanishlar va pull request’lar mamnuniyat bilan qabul qilinadi.
 
 ---
 
