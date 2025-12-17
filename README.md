@@ -1,210 +1,154 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ProbeSuite</title>
+<h1 align="center">
+  <img src="https://cdn3d.iconscout.com/3d/premium/thumb/hacker-3d-icon-download-in-png-blend-fbx-gltf-file-formats--cyber-security-pack-icons-4668704.png?f=webp" alt="Hacker icon" width="130" style="filter: brightness(1.3);" />
+</h1>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Courier New", monospace;
-      background: radial-gradient(circle at top, #151a2e, #0b0f1a);
-      color: #e6e6e6;
-      line-height: 1.6;
-    }
+<h1 align="center">
+  <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&pause=1000&color=F39C12&center=true&vCenter=true&width=800&height=70&duration=4000&lines=ProbeSuite;Modular+Offensive+Security+Toolkit;For+Pentesters+%26+Red+Teamers" />
+</h1>
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      animation: fadeIn 1.8s ease;
-    }
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="800"/>
+</div>
 
-    .logo {
-      color: #00ff9c;
-      font-size: 12px;
-      white-space: pre;
-      display: inline-block;
-      animation: float 3s ease-in-out infinite alternate;
-    }
+<div align="center">
 
-    h1 {
-      font-size: 3rem;
-      margin: 25px 0 10px;
-      color: #f39c12;
-      text-shadow: 0 0 15px rgba(243,156,18,0.6);
-    }
+[![GitHub stars](https://img.shields.io/github/stars/Yescrypt/ProbeSuite?style=for-the-badge&color=blueviolet)](https://github.com/Yescrypt/ProbeSuite/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Yescrypt/ProbeSuite?style=for-the-badge&color=blueviolet)](https://github.com/Yescrypt/ProbeSuite/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/Yescrypt/ProbeSuite?style=for-the-badge&color=red)](https://github.com/Yescrypt/ProbeSuite/issues)
+[![GitHub license](https://img.shields.io/github/license/Yescrypt/ProbeSuite?style=for-the-badge)](https://github.com/Yescrypt/ProbeSuite/blob/main/LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python)](https://python.org)
 
-    h2 {
-      color: #00ccff;
-      margin-top: 40px;
-    }
+</div>
 
-    .subtitle {
-      color: #bbb;
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
+<br>
 
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 25px;
-      animation: fadeUp 1.2s ease;
-    }
-
-    ul {
-      margin-left: 20px;
-    }
-
-    code {
-      background: #1a1f36;
-      padding: 4px 7px;
-      border-radius: 4px;
-      color: #f1c40f;
-    }
-
-    pre {
-      background: #11162a;
-      padding: 18px;
-      border-radius: 8px;
-      overflow-x: auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    }
-
-    .gif {
-      display: block;
-      margin: 40px auto;
-      max-width: 100%;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-
-    @keyframes float {
-      from { transform: translateY(0); }
-      to { transform: translateY(-15px); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-<pre class="logo">
- ____  ____   ___  ____   _____ _____       ___ __ __   
-|  _ \|  _ \ / _ \| __ ) | ____/ ___|| | | |_ _|_   _|  
-| |_) | |_) | | | |  _ \ |  _| \___ \| | | || |  | |  
-|  __/|  _ <| |_| | |_) ||____  __) || |_| || |  | |  
-|_|   |_| \_\___/|____/ |____/|____/ \___/|___| |_|  
-                                                         
+<div align="center">
+  <pre style="color: #00ff9c; font-size: 14px; line-height: 1.2;">
+ ____ ____ ___ ____ _____ _____ ___ __ __
+| _ \| _ \ / _ \| __ ) | ____/ ___|| | | |_ _|_ _|
+| |_) | |_) | | | | _ \ | _| \___ \| | | || | | |
+| __/| _ <| |_| | |_) ||____ __) || |_| || | | |
+|_| |_| \_\___/|____/ |____/|____/ \___/|___| |_|
+                                                        
                          /
-              \         / /
-               \\',    / //
+              \ / /
+               \\', / //
                 \\//,_/ //,
-                 \_-//' /  //<,
-                   \ ///  >  \\`__/__
+                 \_-//' / //<,
+                   \ /// > \\`__/__
                    /,)-^>> _\`
-                   (/   \ //\
+                   (/ \ //\
                        // _//\\
-                     ((` ((  
-</pre>
+                     ((` ((
+  </pre>
+</div>
 
-<h1>ProbeSuite</h1>
-<p class="subtitle">Modular Offensive Security Toolkit</p>
+<br>
 
-<img class="gif" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="animation">
-</header>
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="800"/>
+</div>
 
-<section>
-<h2>🧠 About</h2>
-<p>
-<strong>ProbeSuite</strong> is a modular offensive security toolkit designed to support the
-entire penetration testing lifecycle. It brings together essential tools for
-professional pentesters, red teamers, and cybersecurity researchers.
-</p>
-</section>
+## 🧠 About ProbeSuite
 
-<section>
-<h2>🔍 Pentesting Phases</h2>
-<ul>
-  <li>Information Gathering</li>
-  <li>OSINT</li>
-  <li>Scanning & Enumeration</li>
-  <li>Vulnerability Assessment</li>
-  <li>Exploitation</li>
-  <li>Post-Exploitation</li>
-  <li>Reporting</li>
-</ul>
-</section>
+**ProbeSuite** is a modular offensive security toolkit built to streamline the entire penetration testing lifecycle. It combines essential tools and workflows for professional pentesters, red teamers, and security researchers — all in one extensible Python-based framework.
 
-<section>
-<h2>✨ Features</h2>
-<ul>
-  <li>Modular and extensible architecture</li>
-  <li>Tools grouped by pentesting phases</li>
-  <li>Real-world offensive security workflow</li>
-  <li>Reporting-oriented structure</li>
-</ul>
-</section>
+From reconnaissance to reporting, ProbeSuite keeps everything organized, modular, and ready for real-world engagements.
 
-<section>
-<h2>📦 Requirements</h2>
-<ul>
-  <li>Python 3.9+</li>
-  <li>Git</li>
-  <li>Linux-based OS (recommended)</li>
-</ul>
-</section>
+---
 
-<section>
-<h2>🚀 Installation</h2>
-<pre><code>git clone https://github.com/Yescrypt/ProbeSuite.git
+## 🔍 Supported Pentesting Phases
+
+| Phase                     | Description                                      |
+|---------------------------|--------------------------------------------------|
+| Information Gathering     | Passive & active reconnaissance                  |
+| OSINT                     | Open-source intelligence collection               |
+| Scanning & Enumeration    | Network, service, and asset discovery             |
+| Vulnerability Assessment  | Automated and manual vulnerability detection      |
+| Exploitation              | Exploit development & execution support           |
+| Post-Exploitation         | Persistence, pivoting, and data exfiltration      |
+| Reporting                 | Structured findings and professional reports      |
+
+---
+
+## ✨ Key Features
+
+- **Modular Architecture** – Easy to extend with new tools/modules
+- **Phase-Based Organization** – Tools grouped by pentesting stage
+- **Reporting Focused** – Automatic evidence collection and report generation
+- **Lightweight & Fast** – Pure Python, minimal dependencies
+- **CLI + Optional GUI** – Flexible interface for different workflows
+- **Security Automation** – Scriptable and repeatable tasks
+
+---
+
+## 🛠️ Tech Stack & Tools
+
+<div align="center">
+
+### Core
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/Requests-000000?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/Click-000000?style=for-the-badge&logo=python&logoColor=white"/>
+
+### Integrated Security Tools
+<img src="https://img.shields.io/badge/Nmap-Advanced-green?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Metasploit-Intermediate-red?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Burp_Suite-Intermediate-orange?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Wireshark-Intermediate-blue?style=for-the-badge"/>
+
+</div>
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/Yescrypt/ProbeSuite.git
 cd ProbeSuite
 python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt</code></pre>
-</section>
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt ```
 
-<section>
-<h2>▶️ Usage</h2>
-<pre><code>python app/main.py</code></pre>
-</section>
+## 🚀 Quick Start
+```bash
+python app/main.py
+```
+```
+📊 Reporting
+ProbeSuite automatically organizes screenshots, outputs, and notes. Generated reports are clean, structured, and ready for technical teams or clients.
 
-<section>
-<h2>📊 Reporting</h2>
-<p>
-ProbeSuite helps organize findings and outputs to generate structured
-penetration testing reports suitable for technical teams and decision-makers.
-</p>
-</section>
+🌱 Roadmap & Currently Developing
 
-<section>
-<h2>⚠️ Disclaimer</h2>
-<p>
-This project is intended for educational purposes and authorized security
-testing only. Do not use it against systems without explicit permission.
-</p>
-</section>
+Advanced exploit modules
+Cloud environment support (AWS, Azure)
+Automated vulnerability chaining
+Web UI dashboard
+Integration with popular bug bounty platforms
 
-<footer>
-<p><strong>Author:</strong> Yescrypt</p>
-<p>Offensive Security · Penetration Testing · Red Teaming</p>
-</footer>
 
-</body>
-</html>
+⚠️ Important Disclaimer
+This tool is for educational purposes and authorized penetration testing only.
+Unauthorized use against systems you do not own or have explicit permission to test is illegal.
+The author assumes no liability for misuse.
+
+👨‍💻 Author
+
+Yescrypt – Penetration Tester | Cybersecurity Specialist | Frontend Developer
+GitHub
+Telegram
+Instagram
+LinkedIn
+
+
+  Profile Views
+
+
+  https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif
+
+
+
+
+  If you find ProbeSuite useful, give it a ⭐ on GitHub – it means a lot!
+
+```
