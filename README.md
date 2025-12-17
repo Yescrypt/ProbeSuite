@@ -1,92 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ProbeSuite</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProbeSuite</title>
 
-<style>
-body {
-    font-family: 'Courier New', monospace;
-    background-color: #0f111a;
-    color: #e0e0e0;
-    margin: 0;
-    line-height: 1.6;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: "Courier New", monospace;
+      background: radial-gradient(circle at top, #151a2e, #0b0f1a);
+      color: #e6e6e6;
+      line-height: 1.6;
+    }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 60px 20px;
-    animation: fadeIn 1.5s ease-in-out;
-}
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      animation: fadeIn 1.8s ease;
+    }
 
-/* LOGO */
-pre.logo {
-    font-size: 12px;
-    color: #00ff99;
-    display: inline-block;
-    animation: floatLogo 3s ease-in-out infinite alternate;
-}
+    .logo {
+      color: #00ff9c;
+      font-size: 12px;
+      white-space: pre;
+      display: inline-block;
+      animation: float 3s ease-in-out infinite alternate;
+    }
 
-/* TITLES */
-h1 {
-    margin-top: 20px;
-    font-size: 2.6em;
-    color: #ffcc00;
-    text-shadow: 0 0 12px #ffcc00;
-}
+    h1 {
+      font-size: 3rem;
+      margin: 25px 0 10px;
+      color: #f39c12;
+      text-shadow: 0 0 15px rgba(243,156,18,0.6);
+    }
 
-h2 {
-    color: #00ccff;
-}
+    h2 {
+      color: #00ccff;
+      margin-top: 40px;
+    }
 
-/* SECTIONS */
-section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    border-left: 4px solid #ffcc00;
-    animation: fadeUp 1s ease forwards;
-}
+    .subtitle {
+      color: #bbb;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
 
-/* CODE */
-pre code {
-    display: block;
-    background: #1a1a2e;
-    padding: 15px;
-    color: #ffcc00;
-    overflow-x: auto;
-    border-radius: 6px;
-}
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 25px;
+      animation: fadeUp 1.2s ease;
+    }
 
-ul {
-    margin-left: 20px;
-}
+    ul {
+      margin-left: 20px;
+    }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 40px;
-    color: #777;
-}
+    code {
+      background: #1a1f36;
+      padding: 4px 7px;
+      border-radius: 4px;
+      color: #f1c40f;
+    }
 
-/* ANIMATIONS */
-@keyframes floatLogo {
-    from { transform: translateY(0); }
-    to { transform: translateY(-15px); }
-}
+    pre {
+      background: #11162a;
+      padding: 18px;
+      border-radius: 8px;
+      overflow-x: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+    .gif {
+      display: block;
+      margin: 40px auto;
+      max-width: 100%;
+    }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-</style>
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-15px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 
 <body>
@@ -97,40 +110,64 @@ footer {
 |  _ \|  _ \ / _ \| __ ) | ____/ ___|| | | |_ _|_   _|  
 | |_) | |_) | | | |  _ \ |  _| \___ \| | | || |  | |  
 |  __/|  _ <| |_| | |_) ||____  __) || |_| || |  | |  
-|_|   |_| \_ \___/|____/ |____/|____/ \___/|___| |_|  
-                               /
-                \             / /
-                 \' ,      / //
-                  \//,   _/ //,
-                   \_-//' /  //<,
-                     \ ///  >  \`__/__
-                     /,)-^>> _\` \
-                     (/   \ //\
-                         // _//\\
-                       ((` ((
+|_|   |_| \_\___/|____/ |____/|____/ \___/|___| |_|  
+                                                         
+                         /
+              \         / /
+               \\',    / //
+                \\//,_/ //,
+                 \_-//' /  //<,
+                   \ ///  >  \\`__/__
+                   /,)-^>> _\`
+                   (/   \ //\
+                       // _//\\
+                     ((` ((  
 </pre>
 
 <h1>ProbeSuite</h1>
-<p><strong>Modular Offensive Security Toolkit</strong></p>
+<p class="subtitle">Modular Offensive Security Toolkit</p>
+
+<img class="gif" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="animation">
 </header>
+
+<section>
+<h2>🧠 About</h2>
+<p>
+<strong>ProbeSuite</strong> is a modular offensive security toolkit designed to support the
+entire penetration testing lifecycle. It brings together essential tools for
+professional pentesters, red teamers, and cybersecurity researchers.
+</p>
+</section>
+
+<section>
+<h2>🔍 Pentesting Phases</h2>
+<ul>
+  <li>Information Gathering</li>
+  <li>OSINT</li>
+  <li>Scanning & Enumeration</li>
+  <li>Vulnerability Assessment</li>
+  <li>Exploitation</li>
+  <li>Post-Exploitation</li>
+  <li>Reporting</li>
+</ul>
+</section>
 
 <section>
 <h2>✨ Features</h2>
 <ul>
-<li>Modular and extensible architecture</li>
-<li>Tools organized by penetration testing phases</li>
-<li>Attack surface & reconnaissance focused</li>
-<li>Real-world pentesting workflows</li>
-<li>Reporting-oriented structure</li>
+  <li>Modular and extensible architecture</li>
+  <li>Tools grouped by pentesting phases</li>
+  <li>Real-world offensive security workflow</li>
+  <li>Reporting-oriented structure</li>
 </ul>
 </section>
 
 <section>
 <h2>📦 Requirements</h2>
 <ul>
-<li>Python 3.9+</li>
-<li>Git</li>
-<li>Linux (recommended)</li>
+  <li>Python 3.9+</li>
+  <li>Git</li>
+  <li>Linux-based OS (recommended)</li>
 </ul>
 </section>
 
@@ -150,21 +187,23 @@ pip install -r requirements.txt</code></pre>
 
 <section>
 <h2>📊 Reporting</h2>
-<p>ProbeSuite helps organize findings and outputs into structured penetration testing reports for technical teams and decision-makers.</p>
+<p>
+ProbeSuite helps organize findings and outputs to generate structured
+penetration testing reports suitable for technical teams and decision-makers.
+</p>
 </section>
 
 <section>
 <h2>⚠️ Disclaimer</h2>
-<p>This project is intended <strong>for educational and authorized testing only</strong>. Unauthorized use is prohibited.</p>
-</section>
-
-<section>
-<h2>🤝 Contributing</h2>
-<p>Fork the repository and submit a pull request to contribute.</p>
+<p>
+This project is intended for educational purposes and authorized security
+testing only. Do not use it against systems without explicit permission.
+</p>
 </section>
 
 <footer>
-Author: Yescrypt · Offensive Security · Pentesting · Red Teaming
+<p><strong>Author:</strong> Yescrypt</p>
+<p>Offensive Security · Penetration Testing · Red Teaming</p>
 </footer>
 
 </body>
