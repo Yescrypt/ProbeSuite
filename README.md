@@ -1,21 +1,9 @@
 <div align="center">
   <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="800"/>
 </div>
-
-<div align="center">
-
-[![GitHub stars](https://img.shields.io/github/stars/Yescrypt/ProbeSuite?style=for-the-badge&color=blueviolet)](https://github.com/Yescrypt/ProbeSuite/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/Yescrypt/ProbeSuite?style=for-the-badge&color=blueviolet)](https://github.com/Yescrypt/ProbeSuite/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/Yescrypt/ProbeSuite?style=for-the-badge&color=red)](https://github.com/Yescrypt/ProbeSuite/issues)
-[![GitHub license](https://img.shields.io/github/license/Yescrypt/ProbeSuite?style=for-the-badge)](https://github.com/Yescrypt/ProbeSuite/blob/main/LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python)](https://python.org)
-
-</div>
-
 <br>
 
 <div align="center">
-  <pre style="color: #00ff9c; font-size: 14px; line-height: 1.2;">
                      ____  ____   ___  ____   _____ _____       ___ __ __   
                     |  _ \|  _ \ / _ \| __ ) | ____/ ___|| | | |_ _|_   _|                                                  
                     | |_) | |_) | | | |  _ \ |  _| \___ \| | | || |  | |                                                  
@@ -32,9 +20,16 @@
                                         (/   \\ //\\
                                             // _//\\\\
                                           ((` ((  
-  </pre>
 </div>
+<div align="center">
 
+[![GitHub stars](https://img.shields.io/github/stars/Yescrypt/ProbeSuite?style=for-the-badge&color=blueviolet)](https://github.com/Yescrypt/ProbeSuite/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Yescrypt/ProbeSuite?style=for-the-badge&color=blueviolet)](https://github.com/Yescrypt/ProbeSuite/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/Yescrypt/ProbeSuite?style=for-the-badge&color=red)](https://github.com/Yescrypt/ProbeSuite/issues)
+[![GitHub license](https://img.shields.io/github/license/Yescrypt/ProbeSuite?style=for-the-badge)](https://github.com/Yescrypt/ProbeSuite/blob/main/LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python)](https://python.org)
+
+</div>
 <br>
 
 <div align="center">
@@ -141,4 +136,5 @@ LinkedIn
   If you find ProbeSuite useful, give it a ⭐ on GitHub – it means a lot!
 
 ```
+
 
