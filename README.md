@@ -41,12 +41,12 @@ From reconnaissance to reporting, ProbeSuite keeps everything organized, modular
 | Phase                     | Description                                      |
 |---------------------------|--------------------------------------------------|
 | Information Gathering     | Passive & active reconnaissance                  |
-| OSINT                     | Open-source intelligence collection               |
-| Scanning & Enumeration    | Network, service, and asset discovery             |
-| Vulnerability Assessment  | Automated and manual vulnerability detection      |
-| Exploitation              | Exploit development & execution support           |
-| Post-Exploitation         | Persistence, pivoting, and data exfiltration      |
-| Reporting                 | Structured findings and professional reports      |
+| OSINT                     | Open-source intelligence collection              |
+| Scanning & Enumeration    | Network, service, and asset discovery            |
+| Vulnerability Assessment  | Automated and manual vulnerability detection     |
+| Exploitation              | Exploit development & execution support          |
+| Post-Exploitation         | Persistence, pivoting, and data exfiltration     |
+| Reporting                 | Structured findings and professional reports     |
 
 ---
 
@@ -105,4 +105,5 @@ The author assumes no liability for misuse.
 <strong>If you find ProbeSuite useful, give it a ⭐ on GitHub – it means a lot!</strong>
 
 </div>
+
 
