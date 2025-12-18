@@ -112,26 +112,27 @@ The author assumes no liability for misuse.
 
 ## 👨‍💻 Author
 
-Yescrypt – Penetration Tester | Cybersecurity Specialist | Frontend Developer
-GitHub
-Telegram
-Instagram
-LinkedIn
+<div align="center">
 
+**Yescrypt** – Penetration Tester | Cybersecurity Specialist | Frontend Developer
 
-  Profile Views
+<br>
 
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yescrypt)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/XusanboyevOmadbek)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/yescrypt)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/xusanboyev-omadbek)
 
-  https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif
+<br><br>
 
+<img src="https://komarev.com/ghpvc/?username=yescrypt&label=Profile+Views&color=blueviolet&style=flat-square" alt="Profile Views" />
 
+<br><br>
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="800"/>
 
-  If you find ProbeSuite useful, give it a ⭐ on GitHub – it means a lot!
+<br><br>
 
-```
+<strong>If you find ProbeSuite useful, give it a ⭐ on GitHub – it means a lot!</strong>
 
-
-
-
-
+</div>
