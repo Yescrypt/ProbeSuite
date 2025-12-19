@@ -495,7 +495,7 @@ def run_sublist3r_scanner(target=None):
     options = get_scan_options()
     
     # Output faylini yaratish
-    output_dir = "reports/information_gathering/sublist3r"
+    output_dir = "reports/information_gathering/active/sublist3r"
     os.makedirs(output_dir, exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

@@ -20,7 +20,7 @@ def banner():
     print(f"""
 {C_OK}╔════════════════════════════════════════════════════════════════════════════════╗
 ║                       NUCLEI — HAQIQIY ZAIFLIKLARNI TOPADI                     ║
-║           reports/information_gathering/nuclei/target_YYYYMMDD_HHMMSS.txt      ║
+║               reports/information_gathering/active/nuclei/target_.txt          ║
 ╚════════════════════════════════════════════════════════════════════════════════╝{C_RESET}
 """)
 
@@ -75,10 +75,12 @@ def run_nuclei_scanner():
         pass
 
     # Fayl tayyorlash
-    os.makedirs("reports/information_gathering/nuclei", exist_ok=True)
+    output_dir = "reports/information_gathering/active/nuclei"
+    os.makedirs(output_dir, exist_ok=True)
+    
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     safe_name = target.replace("://", "_").replace("/", "_").replace(":", "_")
-    output_file = f"reports/information_gathering/nuclei/{safe_name}_{timestamp}.txt"
+    output_file = f"{output_dir}/{safe_name}_{timestamp}.txt"
 
     cmd = [
         "nuclei",

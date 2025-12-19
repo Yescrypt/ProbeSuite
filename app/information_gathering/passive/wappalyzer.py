@@ -1,6 +1,7 @@
 # app/information_gathering/passive/wappalyzer.py
 # MEGA WAPPALYZER — 1000+ texnologiya, versiyalar bilan, har qanday sayt uchun!
 # ithouseedu.uz → 45+, darkhunt.uz → 22+, google.com → 35+
+# Reports → reports/passive/wappalyzer/mega_wappalyzer_domain_YYYYMMDD_HHMMSS.{txt,json}
 
 import os
 import re
@@ -10,74 +11,11 @@ from datetime import datetime
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 
-from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, USER_AGENT, REPORTS_DIR
+from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, C_TITLE, USER_AGENT
 from app.utils import Logger
 
-# 1000+ TEXNOLOGIYA BAZASI (Wappalyzer JSON dan olingan, qisqartirilgan)
-TECH_DB = {
-    "1C-Bitrix": {"cats": ["CMS"], "html": "bitrix", "js": "BX"},
-    "Adobe Analytics": {"cats": ["Analytics"], "js": "s_code", "html": "omniture"},
-    "Amazon Cloudfront": {"cats": ["CDN"], "headers": {"X-Amz-Cf-Id": ""}},
-    "Amazon S3": {"cats": ["Storage"], "headers": {"Server": "AmazonS3"}},
-    "Angular": {"cats": ["JavaScript Frameworks"], "js": "angular", "html": "ng-"},
-    "Apache": {"cats": ["Web Servers"], "headers": {"Server": r"Apache[/]?([\d\.]+)?"}},
-    "Bootstrap": {"cats": ["CSS Frameworks"], "html": r"bootstrap[\-\.]?([\d\.]+)?", "js": "bootstrap"},
-    "CentOS": {"cats": ["Operating Systems"], "headers": {"Server": "CentOS"}},
-    "Cloudflare": {"cats": ["CDN"], "headers": {"Server": "cloudflare", "CF-RAY": ""}},
-    "CodeIgniter": {"cats": ["Web Frameworks"], "cookies": {"ci_session": ""}},
-    "Debian": {"cats": ["Operating Systems"], "headers": {"Server": "Debian"}},
-    "Django": {"cats": ["Web Frameworks"], "cookies": {"csrftoken": "", "sessionid": ""}, "html": "django"},
-    "Drupal": {"cats": ["CMS"], "html": "drupal", "js": "Drupal"},
-    "Elementor": {"cats": ["Page Builders"], "html": "elementor"},
-    "Express": {"cats": ["Web Frameworks"], "headers": {"X-Powered-By": "Express"}},
-    "Fedora": {"cats": ["Operating Systems"], "headers": {"Server": "Fedora"}},
-    "Font Awesome": {"cats": ["Font Scripts"], "html": r"font.?awesome", "css": "fa-"},
-    "Framer Motion": {"cats": ["UI Frameworks"], "js": "framer-motion"},
-    "Google Analytics": {"cats": ["Analytics"], "html": r"google-analytics\.com|gtag\.js"},
-    "Google Fonts": {"cats": ["Font Scripts"], "html": r"fonts\.googleapis\.com"},
-    "Google Tag Manager": {"cats": ["Tag Managers"], "html": "gtm-", "js": "dataLayer"},
-    "Hotjar": {"cats": ["Analytics"], "js": "hotjar"},
-    "HubSpot": {"cats": ["Marketing Automation"], "html": "hs-", "js": "HubSpot"},
-    "IIS": {"cats": ["Web Servers"], "headers": {"Server": r"Microsoft-IIS[/]?([\d\.]+)?"}},
-    "jQuery": {"cats": ["JavaScript Libraries"], "html": r"jquery[\-\.]?([\d\.]+)?\.js", "js": "jQuery"},
-    "Laravel": {"cats": ["Web Frameworks"], "cookies": {"laravel_session": ""}},
-    "Let's Encrypt": {"cats": ["Security"], "html": "Let's Encrypt"},
-    "LiteSpeed": {"cats": ["Web Servers"], "headers": {"Server": "LiteSpeed"}},
-    "Magento": {"cats": ["Ecommerce"], "html": "mage-", "js": "Mage"},
-    "Mailchimp": {"cats": ["Email"], "html": "mc.", "js": "mc."},
-    "MariaDB": {"cats": ["Databases"], "html": "mariadb"},
-    "Matomo": {"cats": ["Analytics"], "js": "_paq", "html": "matomo"},
-    "MySQL": {"cats": ["Databases"], "html": "mysql"},
-    "Next.js": {"cats": ["Web Frameworks"], "html": "_next/static"},
-    "Nginx": {"cats": ["Web Servers"], "headers": {"Server": r"nginx[/]?([\d\.]+)?"}},
-    "Node.js": {"cats": ["Programming Languages"], "headers": {"Server": "node"}},
-    "Nuxt.js": {"cats": ["Web Frameworks"], "html": "__nuxt"},
-    "OpenSSL": {"cats": ["Security"], "headers": {"Server": "OpenSSL"}},
-    "PHP": {"cats": ["Programming Languages"], "headers": {"X-Powered-By": r"PHP[/]?([\d\.]+)?"}},
-    "PostgreSQL": {"cats": ["Databases"], "html": "postgresql"},
-    "Python": {"cats": ["Programming Languages"], "html": r"Python/[\d\.]+", "headers": {"Server": "Python"}},
-    "React": {"cats": ["JavaScript Frameworks"], "js": "React", "html": "react"},
-    "Redis": {"cats": ["Databases"], "html": "redis"},
-    "Red Hat": {"cats": ["Operating Systems"], "headers": {"Server": "Red Hat"}},
-    "Ruby on Rails": {"cats": ["Web Frameworks"], "headers": {"X-Powered-By": "Phusion Passenger"}},
-    "Shopify": {"cats": ["Ecommerce"], "html": "shopify", "js": "Shopify"},
-    "Stripe": {"cats": ["Payment"], "js": "Stripe"},
-    "Swiper": {"cats": ["UI Frameworks"], "js": "swiper"},
-    "Tailwind CSS": {"cats": ["CSS Frameworks"], "html": r"tailwind"},
-    "Ubuntu": {"cats": ["Operating Systems"], "headers": {"Server": "Ubuntu"}},
-    "Vue.js": {"cats": ["JavaScript Frameworks"], "js": r"Vue\.js|vue\.min"},
-    "Webpack": {"cats": ["Build Tools"], "js": "webpack"},
-    "Windows Server": {"cats": ["Operating Systems"], "headers": {"Server": "Microsoft"}},
-    "WooCommerce": {"cats": ["Ecommerce"], "html": "woocommerce"},
-    "WordPress": {"cats": ["CMS"], "html": r"wp-content|wp-includes", "meta": {"generator": "WordPress"}},
-    "YouTube": {"cats": ["Video Players"], "html": "youtube.com/embed"},
-    # 950+ qo'shimcha texnologiya (faqat nomlari, patternlarsiz — agar kerak bo‘lsa kengaytiraman)
-    # ... (to'liq baza 1000+)
-}
 
 # To'liq 1000+ baza uchun: https://github.com/wappalyzer/wappalyzer/blob/master/src/technologies.json dan olingan
-# Bu yerda faqat 60 ta ko'rsatdim, qolganini kod ichida avto-load qilaman
-
 def load_full_db():
     """To'liq Wappalyzer JSON bazasini yuklash (GitHub dan)"""
     try:
@@ -91,9 +29,68 @@ def load_full_db():
                 full_db[name] = tech
         return full_db
     except:
-        return TECH_DB  # fallback
+        # Fallback — kichik baza
+        return {
+            "1C-Bitrix": {"cats": ["CMS"], "html": "bitrix", "js": "BX"},
+            "Adobe Analytics": {"cats": ["Analytics"], "js": "s_code", "html": "omniture"},
+            "Amazon Cloudfront": {"cats": ["CDN"], "headers": {"X-Amz-Cf-Id": ""}},
+            "Amazon S3": {"cats": ["Storage"], "headers": {"Server": "AmazonS3"}},
+            "Angular": {"cats": ["JavaScript Frameworks"], "js": "angular", "html": "ng-"},
+            "Apache": {"cats": ["Web Servers"], "headers": {"Server": r"Apache[/]?([\d\.]+)?"}},
+            "Bootstrap": {"cats": ["CSS Frameworks"], "html": r"bootstrap[\-\.]?([\d\.]+)?", "js": "bootstrap"},
+            "CentOS": {"cats": ["Operating Systems"], "headers": {"Server": "CentOS"}},
+            "Cloudflare": {"cats": ["CDN"], "headers": {"Server": "cloudflare", "CF-RAY": ""}},
+            "CodeIgniter": {"cats": ["Web Frameworks"], "cookies": {"ci_session": ""}},
+            "Debian": {"cats": ["Operating Systems"], "headers": {"Server": "Debian"}},
+            "Django": {"cats": ["Web Frameworks"], "cookies": {"csrftoken": "", "sessionid": ""}, "html": "django"},
+            "Drupal": {"cats": ["CMS"], "html": "drupal", "js": "Drupal"},
+            "Elementor": {"cats": ["Page Builders"], "html": "elementor"},
+            "Express": {"cats": ["Web Frameworks"], "headers": {"X-Powered-By": "Express"}},
+            "Fedora": {"cats": ["Operating Systems"], "headers": {"Server": "Fedora"}},
+            "Font Awesome": {"cats": ["Font Scripts"], "html": r"font.?awesome", "css": "fa-"},
+            "Framer Motion": {"cats": ["UI Frameworks"], "js": "framer-motion"},
+            "Google Analytics": {"cats": ["Analytics"], "html": r"google-analytics\.com|gtag\.js"},
+            "Google Fonts": {"cats": ["Font Scripts"], "html": r"fonts\.googleapis\.com"},
+            "Google Tag Manager": {"cats": ["Tag Managers"], "html": "gtm-", "js": "dataLayer"},
+            "Hotjar": {"cats": ["Analytics"], "js": "hotjar"},
+            "HubSpot": {"cats": ["Marketing Automation"], "html": "hs-", "js": "HubSpot"},
+            "IIS": {"cats": ["Web Servers"], "headers": {"Server": r"Microsoft-IIS[/]?([\d\.]+)?"}},
+            "jQuery": {"cats": ["JavaScript Libraries"], "html": r"jquery[\-\.]?([\d\.]+)?\.js", "js": "jQuery"},
+            "Laravel": {"cats": ["Web Frameworks"], "cookies": {"laravel_session": ""}},
+            "Let's Encrypt": {"cats": ["Security"], "html": "Let's Encrypt"},
+            "LiteSpeed": {"cats": ["Web Servers"], "headers": {"Server": "LiteSpeed"}},
+            "Magento": {"cats": ["Ecommerce"], "html": "mage-", "js": "Mage"},
+            "Mailchimp": {"cats": ["Email"], "html": "mc.", "js": "mc."},
+            "MariaDB": {"cats": ["Databases"], "html": "mariadb"},
+            "Matomo": {"cats": ["Analytics"], "js": "_paq", "html": "matomo"},
+            "MySQL": {"cats": ["Databases"], "html": "mysql"},
+            "Next.js": {"cats": ["Web Frameworks"], "html": "_next/static"},
+            "Nginx": {"cats": ["Web Servers"], "headers": {"Server": r"nginx[/]?([\d\.]+)?"}},
+            "Node.js": {"cats": ["Programming Languages"], "headers": {"Server": "node"}},
+            "Nuxt.js": {"cats": ["Web Frameworks"], "html": "__nuxt"},
+            "OpenSSL": {"cats": ["Security"], "headers": {"Server": "OpenSSL"}},
+            "PHP": {"cats": ["Programming Languages"], "headers": {"X-Powered-By": r"PHP[/]?([\d\.]+)?"}},
+            "PostgreSQL": {"cats": ["Databases"], "html": "postgresql"},
+            "Python": {"cats": ["Programming Languages"], "html": r"Python/[\d\.]+", "headers": {"Server": "Python"}},
+            "React": {"cats": ["JavaScript Frameworks"], "js": "React", "html": "react"},
+            "Redis": {"cats": ["Databases"], "html": "redis"},
+            "Red Hat": {"cats": ["Operating Systems"], "headers": {"Server": "Red Hat"}},
+            "Ruby on Rails": {"cats": ["Web Frameworks"], "headers": {"X-Powered-By": "Phusion Passenger"}},
+            "Shopify": {"cats": ["Ecommerce"], "html": "shopify", "js": "Shopify"},
+            "Stripe": {"cats": ["Payment"], "js": "Stripe"},
+            "Swiper": {"cats": ["UI Frameworks"], "js": "swiper"},
+            "Tailwind CSS": {"cats": ["CSS Frameworks"], "html": r"tailwind"},
+            "Ubuntu": {"cats": ["Operating Systems"], "headers": {"Server": "Ubuntu"}},
+            "Vue.js": {"cats": ["JavaScript Frameworks"], "js": r"Vue\.js|vue\.min"},
+            "Webpack": {"cats": ["Build Tools"], "js": "webpack"},
+            "Windows Server": {"cats": ["Operating Systems"], "headers": {"Server": "Microsoft"}},
+            "WooCommerce": {"cats": ["Ecommerce"], "html": "woocommerce"},
+            "WordPress": {"cats": ["CMS"], "html": r"wp-content|wp-includes", "meta": {"generator": "WordPress"}},
+            "YouTube": {"cats": ["Video Players"], "html": "youtube.com/embed"},
+        }
 
 TECH_DB = load_full_db()  # 1000+ texnologiya avto-yuklanadi!
+
 
 def extract_version(pattern, text):
     if not pattern:
@@ -101,10 +98,15 @@ def extract_version(pattern, text):
     match = re.search(pattern, text, re.I)
     return match.group(1) if match and len(match.groups()) > 0 else ""
 
+
 def run_wappalyzer(target):
     url = target.strip()
     if not url.startswith(('http://', 'https://')):
         url = 'https://' + url
+
+    # <<< YANGI >>> Reports papkasi
+    reports_dir = "reports/information_gathering/passive/wappalyzer"
+    os.makedirs(reports_dir, exist_ok=True)
 
     print(f"\n{C_INFO}[*] MEGA Wappalyzer skanlash: {url}{C_RESET}\n")
 
@@ -198,12 +200,15 @@ def run_wappalyzer(target):
         # REPORT
         safe_domain = re.sub(r'[^\w\-]', '_', urlparse(url).netloc)
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"information_gathering/wappalyzer/mega_wappalyzer_{safe_domain}_{ts}"
+        filename = f"mega_wappalyzer_{safe_domain}_{ts}"
 
-        with open(os.path.join(REPORTS_DIR, f"{filename}.json"), "w", encoding="utf-8") as f:
+        txt_path = os.path.join(reports_dir, f"{filename}.txt")
+        json_path = os.path.join(reports_dir, f"{filename}.json")
+
+        with open(json_path, "w", encoding="utf-8") as f:
             json.dump({"url": url, "technologies": found}, f, indent=2, ensure_ascii=False)
 
-        with open(os.path.join(REPORTS_DIR, f"{filename}.txt"), "w", encoding="utf-8") as f:
+        with open(txt_path, "w", encoding="utf-8") as f:
             f.write(f"MEGA WAPPALYZER REPORT\nTarget: {url}\nTime: {datetime.now()}\nFound: {total}\n")
             f.write("="*70 + "\n\n")
             for cat in sorted(categories):
@@ -213,8 +218,8 @@ def run_wappalyzer(target):
                 f.write("\n")
 
         print(f"{C_OK}[+] Reportlar saqlandi!{C_RESET}")
-        print(f"    TXT  → {C_INFO}{filename}.txt{C_RESET}")
-        print(f"    JSON → {C_INFO}{filename}.json{C_RESET}\n")
+        print(f"    TXT  → {C_INFO}{txt_path}{C_RESET}")
+        print(f"    JSON → {C_INFO}{json_path}{C_RESET}\n")
 
         Logger.success(f"Mega Wappalyzer: {total} ta texnologiya → {url}")
 

@@ -31,6 +31,9 @@ class LinkGopher:
         self.external_domains = set()
         self.emails = set()
         self.phones = set()
+        # <<< YANGI >>> Umumiy reports papkasi
+        self.reports_dir = "reports/information_gathering/passive/linkgopher"
+        os.makedirs(self.reports_dir, exist_ok=True)
 
     def banner(self):
         clear_screen()

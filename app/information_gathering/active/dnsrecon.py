@@ -8,7 +8,7 @@ import json
 import time
 from datetime import datetime
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../../'))
 
 from app.config import C_TITLE, C_OK, C_WARN, C_ERR, C_INFO, C_RESET
 from app.utils import Logger, print_header, print_footer, pause, clear_screen
@@ -262,7 +262,7 @@ def run_dnsrecon_scanner(target=None):
     options = get_scan_options(scan_type)
     
     # Output fayl
-    output_dir = "reports/information_gathering/dnsrecon"
+    output_dir = "reports/information_gathering/active/dnsrecon"
     os.makedirs(output_dir, exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

@@ -67,10 +67,11 @@ def run_assetfinder_scanner():
             print(f"   {C_WARN}... +{len(subs)-30} ta → faylda{C_RESET}\n")
 
         # reports/assetfinder papkasiga saqlash
-        os.makedirs("reports/information_gathering/assetfinder", exist_ok=True)
+        output_dir = "reports/information_gathering/active/assetfinder"
+        os.makedirs(output_dir, exist_ok=True)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         safe_domain = domain.replace(".", "_")
-        txt_file = f"reports/information_gathering/assetfinder/{safe_domain}_{timestamp}.txt"
+        txt_file = f"{output_dir}/{safe_domain}_{timestamp}.txt"
 
         header = f"""# Assetfinder Results
 # Target: {domain}

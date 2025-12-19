@@ -1,5 +1,4 @@
 # app/information_gathering/passive/redirect_path.py
-# REDIRECT PATH TRACKER v2.0 — To'liq redirect zanjiri + xavfsizlik ogohlantirishlari!
 
 import os
 import sys
@@ -16,7 +15,7 @@ warnings.filterwarnings("ignore", category=InsecureRequestWarning)
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../"))
 sys.path.insert(0, BASE_DIR)
 
-from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, C_TITLE, REPORTS_DIR, USER_AGENT
+from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, C_TITLE, USER_AGENT
 from app.utils import Logger, clear_screen
 
 
@@ -25,6 +24,9 @@ class RedirectPathTracker:
         self.redirect_chain = []
         self.final_url = ""
         self.start_time = datetime.now()
+        # <<< YANGI >>> Umumiy reports papkasi
+        self.reports_dir = "reports/information_gathering/passive/redirectpath"
+        os.makedirs(self.reports_dir, exist_ok=True)
 
     def banner(self):
         clear_screen()
@@ -32,6 +34,7 @@ class RedirectPathTracker:
         print("╔══════════════════════════════════════════════════════════════════════════════╗")
         print("║                           REDIRECT PATH TRACKER v2.0                         ║")
         print("║                     HTTPS downgrade • Open Redirect • Chain                  ║")
+        print("║         Natija → reports/passive/redirectpath/redirectpath_*.txt            ║")
         print("╚══════════════════════════════════════════════════════════════════════════════╝")
         print(f"{C_RESET}")
 
@@ -147,24 +150,28 @@ class RedirectPathTracker:
 
     def save_report(self, original_url):
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        domain = urlparse(original_url).netloc.replace(".", "_")
-        filename = f"information_gathering/redirectpath/redirectpath_{domain}_{timestamp}.txt"
-        path = os.path.join(REPORTS_DIR, filename)
+        safe_domain = urlparse(original_url).netloc.replace(".", "_")
+        filename = f"redirectpath_{safe_domain}_{timestamp}.txt"
+        path = os.path.join(self.reports_dir, filename)
 
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(f"REDIRECT PATH TRACKER REPORT\n")
-            f.write(f"Original URL: {original_url}\n")
-            f.write(f"Final URL: {self.final_url}\n")
-            f.write(f"Scan Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"Total Redirects: {len(self.redirect_chain) - 1}\n")
-            f.write("="*80 + "\n\n")
-            for r in self.redirect_chain:
-                f.write(f"[{r['step']}] {r['status']} → {r['url']}\n")
-                if r['location']:
-                    f.write(f"     ↓ Location: {r['location']}\n")
-            f.write("\nFINAL URL: " + self.final_url + "\n")
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(f"REDIRECT PATH TRACKER REPORT\n")
+                f.write(f"Original URL: {original_url}\n")
+                f.write(f"Final URL: {self.final_url}\n")
+                f.write(f"Scan Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                f.write(f"Total Redirects: {len(self.redirect_chain) - 1}\n")
+                f.write("="*80 + "\n\n")
+                for r in self.redirect_chain:
+                    f.write(f"[{r['step']}] {r['status']} → {r['url']}\n")
+                    if r['location']:
+                        f.write(f"     ↓ Location: {r['location']}\n")
+                f.write("\nFINAL URL: " + self.final_url + "\n")
 
-        print(f"\n{C_OK}[+] Report saqlandi → {C_INFO}{filename}{C_RESET}")
+            print(f"\n{C_OK}[+] Report saqlandi!{C_RESET}")
+            print(f" → {C_INFO}{path}{C_RESET}\n")
+        except Exception as e:
+            print(f"{C_ERR}Saqlashda xato: {e}{C_RESET}")
 
     def run(self, target):
         self.track(target)

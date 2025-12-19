@@ -252,7 +252,7 @@ def run_whatweb_scanner(target=None):
     aggression = get_aggression_level()
     
     # Output fayllari
-    output_dir = "reports/information_gathering/whatweb"
+    output_dir = "reports/information_gathering/active/whatweb"
     os.makedirs(output_dir, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     domain = target.replace("http://", "").replace("https://", "").replace("/", "_").replace(":", "_")

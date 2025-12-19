@@ -1,4 +1,7 @@
 # app/information_gathering/passive/shodan_lookup.py
+# SHODAN.IO LOOKUP — Internet-connected Devices Intelligence
+# Reports → reports/passive/shodan/shodan_domain_YYYYMMDD_HHMMSS.txt
+
 import os
 import sys
 import socket
@@ -16,13 +19,16 @@ if os.path.exists(env_path):
     load_dotenv(env_path)
 
 # ─────── Ranglar va utilitalar ───────
-from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, C_TITLE, REPORTS_DIR
-from app.utils import clear_screen
+from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, C_TITLE
+from app.utils import Logger, clear_screen
 
 
 class ShodanLookup:
     def __init__(self):
         self.api_key = os.getenv("SHODAN_API_KEY", "").strip()
+        # <<< YANGI >>> Umumiy reports papkasi
+        self.reports_dir = "reports/information_gathering/passive/shodan"
+        os.makedirs(self.reports_dir, exist_ok=True)
 
     def banner(self):
         clear_screen()
@@ -30,6 +36,7 @@ class ShodanLookup:
         print("╔══════════════════════════════════════════════════════════════════════════════╗")
         print("║                              SHODAN.IO LOOKUP                                ║")
         print("║                   Internet-connected Devices Intelligence                    ║")
+        print("║         Natija → reports/information_gathering/passive/shodan/shodan_*.txt   ║")
         print("╚══════════════════════════════════════════════════════════════════════════════╝")
         print(f"{C_RESET}")
 
@@ -146,19 +153,35 @@ class ShodanLookup:
 
     def save_report(self, data, domain, ip):
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-        fn = f"reports/information_gathering/shodan/shodan_{domain}_{ts}.txt"
+        safe_domain = domain.replace(".", "_")
+        filename = f"shodan_{safe_domain}_{ts}.txt"
+        path = os.path.join(self.reports_dir, filename)
+
         try:
-            with open(os.path.join(REPORTS_DIR, fn), "w", encoding="utf-8") as f:
+            with open(path, "w", encoding="utf-8") as f:
                 f.write(f"SHODAN.IO - {domain} ({ip})\n")
-                f.write(f"Vaqt: {datetime.now()}\n{'='*80}\n\n")
+                f.write(f"Vaqt: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                f.write("="*80 + "\n\n")
                 f.write(f"Mamlakat   : {data.get('country_name','N/A')}\n")
+                f.write(f"Shahar     : {data.get('city','N/A')}\n")
                 f.write(f"Tashkilot  : {data.get('org','N/A')}\n")
+                f.write(f"ISP        : {data.get('isp','N/A')}\n")
+                f.write(f"Hostnames  : {', '.join(data.get('hostnames',[])) or 'N/A'}\n")
                 f.write(f"Portlar    : {len(data.get('ports',[]))}\n")
                 f.write(f"OS         : {data.get('os','N/A')}\n")
-            print(f"{C_OK}[+] Hisobot saqlandi → {C_INFO}{fn}{C_RESET}")
-        except:
-            pass
-
+                f.write(f"Zaifliklar : {len(data.get('vulns', {}))}\n")
+                f.write(f"Oxirgi skan: {data.get('last_update','N/A')}\n")
+                f.write("\nOchiq portlar va servislar:\n")
+                for s in data.get("data", []):
+                    f.write(f"  Port {s['port']}: {s.get('product','')} {s.get('version','')}\n")
+                    banner = str(s.get("data","")).replace("\n", " ").replace("\r", "")
+                    if banner.strip():
+                        f.write(f"    Banner: {banner}\n")
+            
+            print(f"{C_OK}[+] Hisobot saqlandi!{C_RESET}")
+            print(f" → {C_INFO}{path}{C_RESET}\n")
+        except Exception as e:
+            print(f"{C_ERR}Saqlashda xato: {e}{C_RESET}")
 
 def run_shodan_lookup(target=""):
     if not target:

@@ -16,6 +16,8 @@ class Blackbird:
     def __init__(self):
         self.tool_path = self.check_installation()
         self.social_platforms = self.get_social_platforms()
+        self.output_dir = "reports/osint/blackbird"
+        os.makedirs(self.output_dir, exist_ok=True)  # Umumiy papka avto-yaratiladi
     
     def check_installation(self):
         """Check if blackbird is installed"""
@@ -371,9 +373,7 @@ class Blackbird:
         print(f"\n{C_OK}[*] Creating timeline template for: {C_WARN}{username}{C_RESET}\n")
         
         # Create reports directory
-        os.makedirs("reports/osint/blackbird", exist_ok=True)
-        
-        filename = f"reports/osint/blackbird/timeline_{username}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+        filename = f"{self.output_dir}/timeline_{username}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
         
         try:
             with open(filename, 'w', encoding='utf-8') as f:
@@ -633,9 +633,8 @@ class Blackbird:
         
         print(f"\n{C_OK}[*] Creating comparison template...{C_RESET}\n")
         
-        os.makedirs("reports/osint/blackbird", exist_ok=True)
-        
-        filename = f"reports/osint/blackbird/comparison_{'_'.join(usernames[:3])}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+        safe_usernames = '_'.join(usernames[:3]) if len(usernames) > 3 else '_'.join(usernames)
+        filename = f"{self.output_dir}/comparison_{safe_usernames}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
         
         try:
             with open(filename, 'w', encoding='utf-8') as f:
@@ -753,9 +752,8 @@ class Blackbird:
     def save_scan_results(self, username, platforms, scan_type):
         """Save scan results to file"""
         # Create reports directory if it doesn't exist
-        os.makedirs("reports/osint/blackbird", exist_ok=True)
         
-        filename = f"reports/osint/blackbird/blackbird_{scan_type}_{username}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+        filename = f"{self.output_dir}/blackbird_{scan_type}_{username}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
         
         try:
             with open(filename, 'w', encoding='utf-8') as f:

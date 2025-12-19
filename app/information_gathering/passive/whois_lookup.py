@@ -1,3 +1,4 @@
+# app/information_gathering/passive/whois_lookup.py
 # whois_lookup.py → FIXED 2025 VERSIYA (BARCHA DOMENLAR UCHUN ISHLAYDI)
 
 import os
@@ -10,7 +11,7 @@ from bs4 import BeautifulSoup
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../"))
 sys.path.insert(0, BASE_DIR)
 
-from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, C_TITLE, REPORTS_DIR
+from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, C_TITLE
 from app.utils import clear_screen
 
 def parse_whois_object(w):
@@ -290,12 +291,15 @@ def run_whois(target=""):
     print(f"{C_TITLE}╚{'═'*100}╝{C_RESET}")
     print(f"\n{C_OK}✓ WHOIS muvaffaqiyatli olindi → {C_INFO}{domain.upper()}{C_RESET}")
 
-    # FAYLGA SAQLASH
+    # <<< YANGI >>> FAYLGA SAQLASH – reports/papka ichiga
+    reports_dir = "reports/information_gathering/passive/whois"
+    os.makedirs(reports_dir, exist_ok=True)
+
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"whois_{domain}_{ts}.txt"
+    filepath = os.path.join(reports_dir, filename)
+
     try:
-        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-        fn = f"information_gathering/whois/whois_{domain}_{ts}.txt"
-        filepath = os.path.join(REPORTS_DIR, fn)
-        
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(f"WHOIS LOOKUP REPORT\n")
             f.write(f"Domain: {domain.upper()}\n")
@@ -304,7 +308,8 @@ def run_whois(target=""):
             f.write(f"{'='*80}\n\n")
             f.write("\n".join(lines))
         
-        print(f"{C_OK}[+] Hisobot saqlandi → {fn}{C_RESET}\n")
+        relative_path = f"reports/information_gathering/passive/whois/{filename}"
+        print(f"{C_OK}[+] Hisobot saqlandi → {C_INFO}{relative_path}{C_RESET}\n")
     except Exception as e:
         print(f"{C_WARN}Faylga saqlashda xato: {e}{C_RESET}\n")
 

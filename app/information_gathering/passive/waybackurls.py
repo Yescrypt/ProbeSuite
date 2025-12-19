@@ -480,14 +480,16 @@ def run_wayback_urls(target=""):
 
 def save_report(domain, urls, total, filtered_count, pattern, keywords):
     """Hisobotni saqlash"""
+    # <<< YANGI USUL >>> Papka va fayl yo'lini to'g'ridan-to'g'ri yaratamiz
+    reports_dir = "reports/information_gathering/passive/waybackurls"
+    os.makedirs(reports_dir, exist_ok=True)  # Agar yo'q bo'lsa — avto yaratiladi
+    
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     pattern_name = pattern['name'].replace(" ", "_").lower()
-    fn = f"information_gathering/waybackurls/wayback_{domain}_{pattern_name}_{ts}.txt"
+    filename = f"wayback_{domain}_{pattern_name}_{ts}.txt"
+    full_path = os.path.join(reports_dir, filename)
     
     try:
-        full_path = os.path.join(REPORTS_DIR, fn)
-        os.makedirs(os.path.dirname(full_path), exist_ok=True)
-        
         with open(full_path, "w", encoding="utf-8") as f:
             f.write("="*100 + "\n")
             f.write("WAYBACK MACHINE - URL DISCOVERY (waybackurls tool)\n")
@@ -526,7 +528,9 @@ def save_report(domain, urls, total, filtered_count, pattern, keywords):
             for i, url in enumerate(urls, 1):
                 f.write(f"{i:>5}. {url}\n")
         
-        print(f"\n{C_OK}[+] Hisobot saqlandi → {C_INFO}{fn}{C_RESET}")
+         # Ekranga chiqadigan yo'l ham yangi papkaga moslashtirildi
+        relative_path = f"reports/information_gathering/passive/waybackurls/{filename}"
+        print(f"\n{C_OK}[+] Hisobot saqlandi → {C_INFO}{relative_path}{C_RESET}")
         print(f"{C_INFO}[*] Hisobotda {filtered_count} ta URL mavjud{C_RESET}")
         
     except Exception as e:

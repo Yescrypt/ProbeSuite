@@ -153,7 +153,7 @@ def run_feroxbuster_scanner(target=None):
     options = get_scan_options()
 
     # Output faylini yaratish
-    output_dir = "reports/information_gathering/feroxbuster"
+    output_dir = "reports/information_gathering/active/feroxbuster"
     os.makedirs(output_dir, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     domain = re.sub(r'[^a-zA-Z0-9_]', '_', target.replace("http://", "").replace("https://", ""))  # Domain tozalash

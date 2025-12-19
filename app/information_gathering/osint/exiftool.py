@@ -30,9 +30,8 @@ class ExifTool:
     
     def ensure_reports_dir(self):
         """Create reports directory if not exists"""
-        if not os.path.exists(self.reports_dir):
-            os.makedirs(self.reports_dir)
-            Logger.success(f"Created reports directory: {self.reports_dir}")
+        """Create reports directory if not exists"""
+        os.makedirs(self.reports_dir, exist_ok=True)
     
     def check_installation(self):
         """Check if exiftool is installed"""
@@ -385,13 +384,16 @@ class ExifTool:
             
             # Save report
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            report_filename = f"reports/osint/exiftool/batch_analysis_{timestamp}.txt"
+            report_filename = f"batch_analysis_{timestamp}.txt"
             report_path = os.path.join(self.reports_dir, report_filename)
             
-            with open(report_path, 'w', encoding='utf-8') as f:
-                f.write(report_content)
-            
-            Logger.success(f"\nBatch report saved: {report_path}")
+            try:
+                with open(report_path, 'w', encoding='utf-8') as f:
+                    f.write(report_content)
+                
+                Logger.success(f"\nBatch report saved: {report_path}")
+            except Exception as e:
+                Logger.error(f"Failed to save batch report: {str(e)}")
         
         print(f"\n{C_OK}[*] Batch analysis complete!{C_RESET}")
         print(f"\n{C_INFO}Summary:{C_RESET}")

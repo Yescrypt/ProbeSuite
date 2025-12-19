@@ -1,5 +1,8 @@
 # app/information_gathering/passive/wappalyzer_basic.py
-from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, USER_AGENT, REPORTS_DIR
+# Oddiy regex asosidagi Wappalyzer — kutubxona ishlamasa ishlaydi
+# Reports → reports/passive/wappalyzer/wappalyzer_basic_domain_YYYYMMDD_HHMMSS.txt
+
+from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, USER_AGENT
 from app.utils import Logger
 import requests
 import re
@@ -14,6 +17,10 @@ def run_wappalyzer_basic(url: str):
         url = 'https://' + url
 
     print(f"\n{C_WARN}[~] Kutubxona ishlamadi → Oddiy regex skaner ishga tushdi{C_RESET}\n")
+
+    # <<< YANGI >>> Reports papkasi
+    reports_dir = "reports/information_gathering/passive/wappalyzer"
+    os.makedirs(reports_dir, exist_ok=True)
 
     try:
         headers = {"User-Agent": USER_AGENT}
@@ -53,16 +60,22 @@ def run_wappalyzer_basic(url: str):
         for t in techs:
             print(f"   • {t}")
 
-        # Report saqlash
+        # Report saqlash → reports/passive/wappalyzer
         domain = urlparse(url).netloc
         safe_domain = re.sub(r'[^\w\-]', '_', domain)
-        filename = f"reports/information_gathering/wappalyzer/wappalyzer_basic_{safe_domain}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
-        path = os.path.join(REPORTS_DIR, filename)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"wappalyzer_basic_{safe_domain}_{timestamp}.txt"
+        path = os.path.join(reports_dir, filename)
+        
         with open(path, "w", encoding="utf-8") as f:
-            f.write(f"Basic Wappalyzer Report\nURL: {url}\n\n")
+            f.write(f"Basic Wappalyzer Report\n")
+            f.write(f"URL: {url}\n")
+            f.write(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write("="*80 + "\n\n")
             for t in techs:
                 f.write(f"• {t}\n")
-        print(f"\n{C_INFO}Saqlandi → {filename}{C_RESET}")
+
+        print(f"\n{C_INFO}Saqlandi → {path}{C_RESET}")
 
     except Exception as e:
         print(f"{C_ERR}Hatto oddiy skaner ham ishlamadi: {e}{C_RESET}")

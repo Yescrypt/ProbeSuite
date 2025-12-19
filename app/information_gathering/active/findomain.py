@@ -196,7 +196,7 @@ def run_findomain_scanner(target=None):
     options = get_scan_options()
     
     # Output fayl
-    output_dir = "reports/information_gathering/findomain"
+    output_dir = "reports/information_gathering/active/findomain"
     os.makedirs(output_dir, exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

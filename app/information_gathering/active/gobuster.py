@@ -1,5 +1,7 @@
 # app/information_gathering/active/gobuster_scanner.py
 # ✅ DNS & VHOST TO'LIQ TUZATILDI! (2025)
+# ✅ Reports yo'llari "reports/active/gobuster" ga o'zgartirildi
+# ✅ Timestamp format xatosi tuzatildi (strftime ishlatildi)
 
 import os
 import subprocess
@@ -133,6 +135,10 @@ def run_gobuster_scanner(target_input):
         target = "https://" + target
     domain = target.replace("https://", "").replace("http://", "").split("/")[0]
     
+    # Umumiy output papkasi
+    output_dir = "reports/information_gathering/active/gobuster"
+    os.makedirs(output_dir, exist_ok=True)
+    
     print(f"\n{C_TITLE}╔{'═'*82}╗{C_RESET}")
     print(f"{C_TITLE}║{' GOBUSTER — ADVANCED RECON SCANNER (2025) ':^82}║{C_RESET}")
     print(f"{C_TITLE}╚{'═'*82}╝{C_RESET}\n")
@@ -145,6 +151,9 @@ def run_gobuster_scanner(target_input):
     if mode not in ["1", "2", "3"]:
         return
 
+    # Timestamp umumiy (har mode uchun yangi)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
     # ==================== DIR MODE ====================
     if mode == "1":
         print(f"\n{C_INFO}locate orqali DIR wordlistlar qidirilmoqda...{C_RESET}")
@@ -155,8 +164,8 @@ def run_gobuster_scanner(target_input):
             input(); return
         
         ext = input(f"\n{C_INFO}Kengaytmalar (php,html,js,bak,zip,txt,env) → bo'sh = faqat papka: {C_RESET}").strip()
-        out = f"reports/information_gathering/gobuster/dir_{domain}_{datetime.now():%Y%m%d_%H%M%S}.txt"
-        os.makedirs("reports/information_gathering/gobuster", exist_ok=True)
+        
+        out = f"{output_dir}/dir_{domain}_{timestamp}.txt"
         
         cmd = [
             "gobuster", "dir",
@@ -192,7 +201,7 @@ def run_gobuster_scanner(target_input):
             print(f"{C_WARN}Hech narsa topilmadi{C_RESET}")
         Logger.success(f"Gobuster DIR → {target} | {found} ta")
 
-    # ==================== DNS MODE (TUZATILDI: --wildcard olib tashlandi!) ====================
+    # ==================== DNS MODE ====================
     elif mode == "2":
         print(f"\n{C_INFO}locate orqali DNS wordlistlar qidirilmoqda...{C_RESET}")
         dns_patterns = ["subdomains-top1million", "subdomains.txt", "dns.txt", "namelist.txt", "fierce.txt"]
@@ -201,22 +210,18 @@ def run_gobuster_scanner(target_input):
         if not wordlist:
             input(); return
         
-        out = f"reports/information_gathering/gobuster/dns_{domain}_{datetime.now():%Y%m%d_%H%M%S}.txt"
-        os.makedirs("reports/information_gathering/gobuster", exist_ok=True)
+        out = f"{output_dir}/dns_{domain}_{timestamp}.txt"
         
-        # ✅ TUZATISH: --wildcard olib tashlandi, chunki wildcard DNS bo'lgan hollarda haqiqiy subdomains ham filtrlanib qolishi mumkin
-        # Endi barcha resolve bo'lgan subdomains ko'rsatiladi (wildcard ham, lekin foydalanuvchi o'zi filtrlashi mumkin)
         cmd = [
             "gobuster", "dns",
             "-d", domain,
             "-w", wordlist,
             "-o", out,
-            "-t", "50",  # DNS uchun 50 thread yetarli (ko'p bo'lsa timeout bo'ladi)
+            "-t", "50",
             "-q",
-            "--resolver", "8.8.8.8",  # Port kerak emas, faqat IP
-            "--show-cname",  # CNAME yozuvlarini ham ko'rsat
-            "--show-ips",  # IP manzillarni ko'rsat
-            # "--wildcard"  # Izohga olindi: Wildcard testing o'chirildi
+            "--resolver", "8.8.8.8",
+            "--show-cname",
+            "--show-ips",
         ]
         
         print(f"\n{C_INFO}════════════════════════════════════════════════════════════════════════════{C_RESET}")
@@ -236,10 +241,9 @@ def run_gobuster_scanner(target_input):
             try:
                 print(f"\n{C_TITLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{C_RESET}")
                 print(f"{C_TITLE}TOPILGAN SUBDOMAINLAR:{C_RESET}\n")
-                # Faqat "Found:" qatorlarni ko'rsatish
                 with open(out, 'r') as f:
                     lines = [line.strip() for line in f if line.strip() and 'Found:' in line]
-                    for idx, line in enumerate(lines[:30], 1):  # Eng ko'pi bilan 30 ta
+                    for idx, line in enumerate(lines[:30], 1):
                         print(f"{C_OK}{idx:3}. {line}{C_RESET}")
                 if len(lines) > 30:
                     print(f"\n{C_INFO}... va yana {len(lines)-30} ta (to'liq ro'yxat: {out}){C_RESET}")
@@ -261,7 +265,7 @@ def run_gobuster_scanner(target_input):
             print(f"  {C_OK}6. Findomain{C_RESET} - Rust-da yozilgan, juda tez")
             print(f"\n{C_INFO}💡 Maslahat: Yuqoridagi toollarni menyu [9], [10], [11] dan sinab ko'ring!{C_RESET}")
 
-    # ==================== VHOST MODE (TUZATILDI!) ====================
+    # ==================== VHOST MODE ====================
     elif mode == "3":
         print(f"\n{C_INFO}locate orqali VHOST wordlist qidirilmoqda...{C_RESET}")
         candidates = locate_wordlists(["subdomains-top1million", "vhost", "hosts.txt", "namelist.txt"])
@@ -269,10 +273,8 @@ def run_gobuster_scanner(target_input):
         if not wordlist:
             input(); return
         
-        out = f"reports/information_gathering/gobuster/vhost_{domain}_{datetime.now():%Y%m%d_%H%M%S}.txt"
-        os.makedirs("reports/information_gathering/gobuster", exist_ok=True)
+        out = f"{output_dir}/vhost_{domain}_{timestamp}.txt"
         
-        # ✅ ASOSIY TUZATISH: VHOST da --append-domain va -k kerak
         cmd = [
             "gobuster", "vhost",
             "-u", target,
@@ -280,13 +282,12 @@ def run_gobuster_scanner(target_input):
             "-o", out,
             "-t", "100",
             "-q",
-            "-k",  # SSL xatolarni e'tiborsiz qoldirish
-            "--append-domain",  # subdomain.domain.com formatida sinaydi
+            "-k",
+            "--append-domain",
             "--random-agent",
             "--timeout", "10s"
         ]
         
-        # Filtrlash uchun (optional)
         print(f"\n{C_INFO}Status kod filtri (default: hamma) → masalan 200,301,403: {C_RESET}", end="")
         status_filter = input().strip()
         if status_filter:

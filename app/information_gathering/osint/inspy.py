@@ -15,6 +15,9 @@ class Inspy:
     
     def __init__(self):
         self.tool_path = self.check_installation()
+        # <<< YANGI >>> Umumiy reports papkasi
+        self.reports_dir = "reports/osint/inspy"
+        os.makedirs(self.reports_dir, exist_ok=True)
     
     def check_installation(self):
         """Check if inspy is installed"""
@@ -74,7 +77,9 @@ class Inspy:
 
     def save_employee_results(self, company, results):
         """Save employee search results to file"""
-        filename = f"reports/osint/inspy/employees_{company.replace(' ', '_').lower()}.txt"
+        safe_company = company.replace(' ', '_').lower()
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{self.reports_dir}/employees_{safe_company}_{timestamp}.txt"
         
         try:
             with open(filename, 'w', encoding='utf-8') as f:
@@ -238,7 +243,9 @@ class Inspy:
 
     def save_department_mapping(self, company, departments, searches):
         """Save department mapping to file"""
-        filename = f"reports/osint/inspy/departments_{company.replace(' ', '_').lower()}.txt"
+        safe_company = company.replace(' ', '_').lower()
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{self.reports_dir}/departments_{safe_company}_{timestamp}.txt"
         
         try:
             with open(filename, 'w', encoding='utf-8') as f:
@@ -317,7 +324,9 @@ class Inspy:
 
     def save_tech_stack(self, company, findings):
         """Save technology stack findings"""
-        filename = f"reports/osint/inspy/tech_stack_{company.replace(' ', '_').lower()}.txt"
+        safe_company = company.replace(' ', '_').lower()
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{self.reports_dir}/tech_stack_{safe_company}_{timestamp}.txt"
         
         try:
             with open(filename, 'w', encoding='utf-8') as f:
@@ -424,7 +433,9 @@ class Inspy:
 
     def save_executive_template(self, company):
         """Save executive research template"""
-        filename = f"reports/osint/inspy/executives_{company.replace(' ', '_').lower()}.txt"
+        safe_company = company.replace(' ', '_').lower()
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{self.reports_dir}/executive_template_{safe_company}_{timestamp}.txt"
         
         try:
             with open(filename, 'w', encoding='utf-8') as f:
@@ -588,7 +599,9 @@ class Inspy:
 
     def save_investigation_checklist(self, target, log):
         """Save LinkedIn investigation checklist"""
-        filename = f"reports/osint/inspy/linkedin_osint_{target.replace(' ', '_').lower()}.txt"
+        safe_target = target.replace(' ', '_').lower()
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{self.reports_dir}/linkedin_osint_{safe_target}_{timestamp}.txt"
         
         try:
             with open(filename, 'w', encoding='utf-8') as f:
@@ -653,7 +666,9 @@ class Inspy:
     
     def save_email_patterns(self, company, domain, patterns):
         """Save email patterns to file"""
-        filename = f"reports/osint/inspy/email_patterns_{company.replace(' ', '_')}.txt"
+        safe_company = company.replace(' ', '_').lower()
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{self.reports_dir}/email_patterns_{safe_company}_{timestamp}.txt"
         
         try:
             with open(filename, 'w') as f:
@@ -670,7 +685,9 @@ class Inspy:
     
     def save_dorks(self, target, dorks):
         """Save dorks to file"""
-        filename = f"reports/osint/inspy/linkedin_dorks_{target.replace(' ', '_')}.txt"
+        safe_target = target.replace(' ', '_').lower()
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{self.reports_dir}/linkedin_dorks_{safe_target}_{timestamp}.txt"
         
         try:
             with open(filename, 'w') as f:

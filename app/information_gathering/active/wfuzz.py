@@ -370,7 +370,7 @@ def run_wfuzz_scanner(target=None):
         show_codes = input(f"    {C_INFO}She11>{C_RESET} ").strip()
     
     # Output fayl
-    output_dir = "reports/information_gathering/wfuzz"
+    output_dir = "reports/information_gathering/active/wfuzz"
     os.makedirs(output_dir, exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

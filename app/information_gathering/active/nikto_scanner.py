@@ -19,8 +19,11 @@ def run_nikto_scanner(target_input: str):
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     safe_name = target.replace(".", "_")
-    output_file = f"reports/information_gathering/nikto/{ip}_{safe_name}_{timestamp}.txt"
-    os.makedirs("reports/information_gathering/nikto", exist_ok=True)
+
+    # Yangi yo'l: reports/information_gathering/active/nikto
+    output_dir = "reports/information_gathering/active/nikto"
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = f"{output_dir}/{ip}_{safe_name}_{timestamp}.txt"
 
     print(f"\n{C_TITLE}╔{'═'*74}╗{C_RESET}")
     print(f"{C_TITLE}║{'  NIKTO — ULTRA LIGHTNING RECON + REPORT  ':^74}║{C_RESET}")

@@ -26,6 +26,8 @@ maigret
 python-whois>=0.8.0
 whois
 waybackpy>=3.0.6
+dnrecon3>=3.0.0
+dnsrecon>=1.6.5
 
 # Web Analysis
 python-Wappalyzer>=0.3.1

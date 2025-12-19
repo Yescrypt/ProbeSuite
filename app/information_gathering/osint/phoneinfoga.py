@@ -1,5 +1,6 @@
 # app/information_gathering/osint/phoneinfoga.py
 
+import datetime
 import sys
 import os
 import re
@@ -16,6 +17,9 @@ class PhoneInfoga:
     
     def __init__(self):
         self.tool_path = self.check_installation()
+        # <<< YANGI >>> Umumiy reports papkasi
+        self.reports_dir = "reports/osint/phoneinfoga"
+        os.makedirs(self.reports_dir, exist_ok=True)
     
     def check_installation(self):
         """Check if phoneinfoga is installed"""
@@ -124,13 +128,27 @@ class PhoneInfoga:
         print(f"\n{C_OK}[*] Scanning with PhoneInfoga: {C_WARN}{phone}{C_RESET}\n")
         
         try:
-            # Run phoneinfoga scan
             cmd = ['phoneinfoga', 'scan', '-n', phone]
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
             
             if result.returncode == 0:
                 print(result.stdout)
-                Logger.success("Scan completed!")
+                
+                # <<< YANGI: Natija saqlanadi >>>
+                safe_phone = phone.replace('+', 'plus').replace(' ', '_')
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                output_file = f"{self.reports_dir}/phoneinfoga_scan_{safe_phone}_{timestamp}.txt"
+                
+                with open(output_file, 'w', encoding='utf-8') as f:
+                    f.write(f"# PhoneInfoga Scan Results\n")
+                    f.write(f"# Phone: {phone}\n")
+                    f.write(f"# Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                    f.write(f"# Command: {' '.join(cmd)}\n")
+                    f.write("="*80 + "\n\n")
+                    f.write(result.stdout)
+                
+                Logger.success(f"PhoneInfoga results saved: {output_file}")
+                
                 return True
             else:
                 Logger.error(f"Scan failed: {result.stderr}")
@@ -145,7 +163,9 @@ class PhoneInfoga:
     
     def save_report(self, phone, searches, dorks):
         """Save analysis reports"""
-        filename = f"reports/osint/phoneinfoga/phone_analysis_{phone.replace('+', '').replace(' ', '_')}.txt"
+        safe_phone = phone.replace('+', 'plus').replace(' ', '_')
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{self.reports_dir}/phone_analysis_{safe_phone}_{timestamp}.txt"
         
         try:
             with open(filename, 'w', encoding='utf-8') as f:

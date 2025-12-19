@@ -166,8 +166,11 @@ def run_dirsearch_scanner(target_input: str):
     # 6. Report file
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     safe_name = re.sub(r"[^\w\-.]", "_", target.split("://")[-1])
-    os.makedirs("reports/information_gathering/dirsearch", exist_ok=True)
-    output_file = f"reports/information_gathering/dirsearch/{safe_name}_{timestamp}.txt"
+    
+    output_dir = "reports/information_gathering/active/dirsearch"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    output_file = f"{output_dir}/{safe_name}_{timestamp}.txt"
 
     # =============================================================
     #  DIRSEARCH COMMAND - OPTIMIZED

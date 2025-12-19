@@ -18,6 +18,8 @@ class Holehe:
     def __init__(self):
         self.tool_path = self.check_installation()
         self.services = self.get_popular_services()
+        self.reports_dir = "reports/osint/holehe"
+        os.makedirs(self.reports_dir, exist_ok=True)
     
     def check_installation(self):
         """Check if holehe is installed"""
@@ -166,8 +168,10 @@ class Holehe:
             if result.returncode == 0:
                 print(result.stdout)
                 
-                # Save results
-                output_file = f"reports/osint/holehe/holehe_{email.replace('@', '_at_').replace('.', '_')}.txt"
+                # YANGI: self.reports_dir ishlatildi
+                safe_email = email.replace('@', '_at_').replace('.', '_')
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                output_file = f"{self.reports_dir}/holehe_{safe_email}_{timestamp}.txt"
                 with open(output_file, 'w') as f:
                     f.write(result.stdout)
                 
@@ -241,9 +245,13 @@ class Holehe:
             print(f"    {dork}\n")
         
         # Save dorks
-        filename = f"reports/osint/holehe/email_dorks_{email.replace('@', '_at_')}.txt"
-        with open(filename, 'w') as f:
+        safe_email = email.replace('@', '_at_')
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{self.reports_dir}/dorks_{safe_email}_{timestamp}.txt"
+        
+        with open(filename, 'w', encoding='utf-8') as f:
             f.write(f"Google Dorks for: {email}\n")
+            f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
             f.write("=" * 80 + "\n\n")
             for dork, desc in dorks:
                 f.write(f"{desc}:\n{dork}\n\n")
@@ -289,7 +297,9 @@ class Holehe:
     
     def save_quick_report(self, email, resources):
         """Save quick check report"""
-        filename = f"reports/osint/holehe/email_check_{email.replace('@', '_at_').replace('.', '_')}.txt"
+        safe_email = email.replace('@', '_at_').replace('.', '_')
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{self.reports_dir}/quick_check_{safe_email}_{timestamp}.txt"
         
         try:
             with open(filename, 'w', encoding='utf-8') as f:

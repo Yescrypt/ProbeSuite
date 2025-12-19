@@ -1,11 +1,10 @@
 # app/information_gathering/passive/security_headers.py
-# SECURITY HEADERS CHECKER v2.0 — Jadval + Rang + Tavsiyalar (PYLANCE Tinch!)
 
 import os
 import sys
 import requests
 import warnings
-from urllib.parse import urlparse        # <—— BU YERDA QO‘SHILDI!
+from urllib.parse import urlparse
 from datetime import datetime
 from urllib3.exceptions import InsecureRequestWarning
 
@@ -16,7 +15,7 @@ warnings.filterwarnings("ignore", category=InsecureRequestWarning)
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
 sys.path.insert(0, BASE_DIR)
 
-from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, C_TITLE, REPORTS_DIR, USER_AGENT
+from app.config import C_OK, C_WARN, C_ERR, C_RESET, C_INFO, C_TITLE, USER_AGENT
 from app.utils import Logger, clear_screen
 
 
@@ -36,6 +35,9 @@ class SecurityHeadersChecker:
         }
         self.found = {}
         self.missing = {}
+        # <<< YANGI >>> Umumiy reports papkasi
+        self.reports_dir = "reports/information_gathering/passive/securityheaders"
+        os.makedirs(self.reports_dir, exist_ok=True)
 
     def banner(self):
         clear_screen()
@@ -43,6 +45,7 @@ class SecurityHeadersChecker:
         print("╔══════════════════════════════════════════════════════════════════════════════╗")
         print("║                       SECURITY HEADERS ANALYZER v2.0                         ║")
         print("║        Bor bo‘lsa Present • Yo‘q bo‘lsa Missing • Tavsiyalar bilan           ║")
+        print("║         Natija → reports/passive/securityheaders/securityheaders_*.txt       ║")
         print("╚══════════════════════════════════════════════════════════════════════════════╝")
         print(f"{C_RESET}")
 
@@ -98,7 +101,6 @@ class SecurityHeadersChecker:
             else:
                 status = f"{C_ERR}Missing{reset}"
 
-            # Chegara rangli, ichki matn o‘z rangida
             print(f"{border}║{reset} {header:<43} {status:<12} {desc:<45}{border}║{reset}")
 
         print(f"{border}╚{'═' * width}╝{reset}")
@@ -136,25 +138,29 @@ class SecurityHeadersChecker:
 
     def save_report(self, original, final):
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        domain = urlparse(original).netloc.replace(".", "_")
-        filename = f"information_gathering/securityheaders/securityheaders_{domain}_{timestamp}.txt"
-        path = os.path.join(REPORTS_DIR, filename)
+        safe_domain = urlparse(original).netloc.replace(".", "_")
+        filename = f"securityheaders_{safe_domain}_{timestamp}.txt"
+        path = os.path.join(self.reports_dir, filename)
 
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(f"SECURITY HEADERS REPORT\n")
-            f.write(f"Original URL: {original}\n")
-            f.write(f"Final URL: {final}\n")
-            f.write(f"Scan Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"Score: {len(self.found)}/{len(self.headers_to_check)} ({int((len(self.found)/len(self.headers_to_check))*100)}%)\n")
-            f.write("="*80 + "\n\n")
-            f.write("PRESENT HEADERS:\n")
-            for h, v in self.found.items():
-                f.write(f"Present {h}: {v}\n")
-            f.write("\nMISSING HEADERS:\n")
-            for h, desc in self.missing.items():
-                f.write(f"Missing {h} → {desc}\n")
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(f"SECURITY HEADERS REPORT\n")
+                f.write(f"Original URL: {original}\n")
+                f.write(f"Final URL: {final}\n")
+                f.write(f"Scan Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                f.write(f"Score: {len(self.found)}/{len(self.headers_to_check)} ({int((len(self.found)/len(self.headers_to_check))*100)}%)\n")
+                f.write("="*80 + "\n\n")
+                f.write("PRESENT HEADERS:\n")
+                for h, v in self.found.items():
+                    f.write(f"Present {h}: {v}\n")
+                f.write("\nMISSING HEADERS:\n")
+                for h, desc in self.missing.items():
+                    f.write(f"Missing {h} → {desc}\n")
 
-        print(f"\n{C_OK}[+] Report saqlandi → {C_INFO}{filename}{C_RESET}")
+            print(f"\n{C_OK}[+] Report saqlandi!{C_RESET}")
+            print(f" → {C_INFO}{path}{C_RESET}\n")
+        except Exception as e:
+            print(f"{C_ERR}Saqlashda xato: {e}{C_RESET}")
 
     def run(self, target):
         self.check(target)

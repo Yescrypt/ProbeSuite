@@ -23,12 +23,13 @@ def run_command(cmd, timeout=1200):
 
 
 def get_nmap_report_path(target):
-    """reports/information_gathering/nmap/domain_yyyymmdd_hhmmss.txt"""
-    os.makedirs("reports/information_gathering/nmap", exist_ok=True)
+    """reports/information_gathering/active/nmap/domain_YYYYMMDD_HHMMSS.txt"""
+    output_dir = "reports/information_gathering/active/nmap"
+    os.makedirs(output_dir, exist_ok=True)
     
     safe_name = target.replace("://", "_").replace("/", "_").replace(":", "_").replace(".", "_")
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    return f"reports/information_gathering/nmap/{safe_name}_{timestamp}.txt"
+    return f"{output_dir}/{safe_name}_{timestamp}.txt"
 
 
 def save_nmap_result(target, profile_name, command, output):
@@ -77,7 +78,7 @@ class NmapScanner:
     def display_menu():
         clear_screen()
         print(f"{C_TITLE}╔{'═'*62}╗{C_RESET}")
-        print(f"{C_TITLE}║{' NMAP SCANNER • reports/nmap/ ga yozadi ':^62}║{C_RESET}")
+        print(f"{C_TITLE}║{' NMAP SCANNER • reports/information_gathering/active/nmap ga yozadi ':^62}║{C_RESET}")
         print(f"{C_TITLE}╚{'═'*62}╝{C_RESET}\n")
 
         for k, (name, _) in NmapScanner.PROFILES.items():
@@ -134,7 +135,6 @@ class NmapScanner:
 
             print(f"\n{C_OK}Scan completed!{C_RESET}")
             pause()  # Enter bosishni kutamiz, keyin yana menyuga qaytamiz
-            # break yo‘q — tsikl davom etadi
 
 
 def run_nmap_scanner():
@@ -146,12 +146,11 @@ def run_nmap_scanner():
 
     NmapScanner.run_scan(target)
 
-    # Nmap bo‘limidan chiqishdan oldin inglizcha savol
+    # Nmap bo‘limidan chiqishdan oldin savol
     print(f"\n{C_INFO}Do you want to stay in the Nmap section with the same target? (y/n): {C_RESET}", end="")
     stay = input().strip().lower()
     if stay == "y" or stay == "yes":
-        run_nmap_scanner()  # Rekursiv chaqiruv — yana yangi skan boshlaymiz (yoki targetni qayta kiritish)
-    # Aks holda oddiygina chiqib ketadi
+        run_nmap_scanner()  # Rekursiv chaqiruv — yana yangi skan
 
 
 if __name__ == "__main__":
