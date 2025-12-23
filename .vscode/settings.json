@@ -1,7 +1,9 @@
 {
     "python.analysis.extraPaths": [
         "./app/scanning/active",
-        "./app/scanning/passive"
+        "./app/scanning/passive",
+        "./app/vulnerability",
+        "./app/exploitation"
     ],
     "python-envs.pythonProjects": []
 }

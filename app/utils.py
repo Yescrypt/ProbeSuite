@@ -161,26 +161,42 @@ class URLValidator:
         return all(0 <= int(octet) <= 255 for octet in octets)
 
 
+# utils.py dagi ReportWriter klasini BU KOD BILAN almashtiring:
+
 class ReportWriter:
     """Report yazish"""
     
     @staticmethod
-    def save_json(filename, data):
+    def save_json(filename, data, subfolder=None):
         """JSON report"""
-        Path(REPORTS_DIR).mkdir(parents=True, exist_ok=True)
-        filepath = os.path.join(REPORTS_DIR, f"{filename}.json")
+        if subfolder:
+            report_path = os.path.join(REPORTS_DIR, subfolder)
+        else:
+            report_path = REPORTS_DIR
+            
+        Path(report_path).mkdir(parents=True, exist_ok=True)
+        filepath = os.path.join(report_path, f"{filename}.json")
+        
         with open(filepath, 'w') as f:
             json.dump(data, f, indent=2)
+        
         Logger.success(f"Report saved: {filepath}")
         return filepath
     
     @staticmethod
-    def save_txt(filename, content):
+    def save_txt(filename, content, subfolder=None):
         """Text report"""
-        Path(REPORTS_DIR).mkdir(parents=True, exist_ok=True)
-        filepath = os.path.join(REPORTS_DIR, f"{filename}.txt")
+        if subfolder:
+            report_path = os.path.join(REPORTS_DIR, subfolder)
+        else:
+            report_path = REPORTS_DIR
+            
+        Path(report_path).mkdir(parents=True, exist_ok=True)
+        filepath = os.path.join(report_path, f"{filename}.txt")
+        
         with open(filepath, 'w') as f:
             f.write(content)
+        
         Logger.success(f"Report saved: {filepath}")
         return filepath
     

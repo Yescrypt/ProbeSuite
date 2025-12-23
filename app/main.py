@@ -495,81 +495,39 @@ class MainMenu:
         os.system('ipscan &')
         pause("Angry IP Scanner launched in background")
     
+    # main.py ichidagi vulnerability_menu funksiyasini BU KOD BILAN almashtiring:
+
     # ==================== VULNERABILITY ASSESSMENT ====================
     def vulnerability_menu(self):
-        while True:
-            self.show_logo()
-            
-            Terminal.print_margin(f"{C_TITLE}┌─ VULNERABILITY ASSESSMENT ──────┐{C_RESET}")
-            Terminal.print_margin()
-            
-            items = [
-                ("1", "Web Vulnerability Scanner"),
-                ("2", "SQL Injection Tester"),
-                ("3", "XSS Scanner"),
-                ("4", "SSL/TLS Analyzer"),
-                ("5", "CVE Database Lookup"),
-                ("6", "Config Checker"),
-            ]
-            
-            for num, name in items:
-                Terminal.print_margin(f"{C_INFO}  [{num}]  {name}{C_RESET}")
-            
-            Terminal.print_margin()
-            Terminal.print_margin(f"{C_WARN}  [0]  Back{C_RESET}")
-            Terminal.print_margin()
-            Terminal.print_margin(f"{C_TITLE}└────────────────────────────────┘{C_RESET}")
-            Terminal.print_margin()
-            
-            choice = InputValidator.get_choice()
-            
-            if choice == '0':
-                return
-            elif choice in ['1', '2', '3', '4', '5', '6']:
-                Logger.warning("This module is under development")
-                Logger.info("Coming soon in next version!")
-                pause()
-            else:
-                Logger.error("Invalid choice!")
-                time.sleep(0.5)
+        """Vulnerability Assessment menu"""
+        try:
+            sys.path.insert(0, os.path.join(BASE_DIR, 'app', 'vulnerability'))
+            from vulnerability_menu import run_vulnerability_menu
+            run_vulnerability_menu()
+        except ImportError as e:
+            Logger.error(f"Vulnerability menu module not found!")
+            Logger.warning(f"Error: {e}")
+            Logger.info("Please ensure vulnerability_menu.py exists in app/vulnerability/")
+            pause()
+        except Exception as e:
+            Logger.error(f"Error running vulnerability menu: {e}")
+            pause()
     
     # ==================== EXPLOITATION ====================
     def exploitation_menu(self):
-        while True:
-            self.show_logo()
-            
-            Terminal.print_margin(f"{C_TITLE}┌─ EXPLOITATION ──────────────────┐{C_RESET}")
-            Terminal.print_margin()
-            
-            items = [
-                ("1", "Metasploit Integration"),
-                ("2", "SQLMap (SQL Injection)"),
-                ("3", "Reverse Shell Generator"),
-                ("4", "Payload Generator (Msfvenom)"),
-                ("5", "Custom Exploit Runner"),
-            ]
-            
-            for num, name in items:
-                Terminal.print_margin(f"{C_INFO}  [{num}]  {name}{C_RESET}")
-            
-            Terminal.print_margin()
-            Terminal.print_margin(f"{C_WARN}  [0]  Back{C_RESET}")
-            Terminal.print_margin()
-            Terminal.print_margin(f"{C_TITLE}└────────────────────────────────┘{C_RESET}")
-            Terminal.print_margin()
-            
-            choice = InputValidator.get_choice()
-            
-            if choice == '0':
-                return
-            elif choice == '3':
-                self.reverse_shell_gen()
-            elif choice in ['1', '2', '4', '5']:
-                Logger.warning("This module is under development")
-                pause()
-            else:
-                Logger.error("Invalid choice!")
-                time.sleep(0.5)
+        """Exploitation menu"""
+        try:
+            sys.path.insert(0, os.path.join(BASE_DIR, 'app', 'exploitation'))
+            from exploitation_menu import run_exploitation_menu
+            run_exploitation_menu()
+        except ImportError as e:
+            Logger.error(f"Exploitation menu module not found!")
+            Logger.warning(f"Error: {e}")
+            Logger.info("Please ensure exploitation_menu.py exists in app/exploitation/")
+            pause()
+        except Exception as e:
+            Logger.error(f"Error running exploitation menu: {e}")
+            pause()
     
     def reverse_shell_gen(self):
         """Reverse Shell Generator"""

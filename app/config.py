@@ -12,6 +12,8 @@ init(autoreset=True)
 VERSION = "1.61"
 BANNER = f"ProbeSuite v{VERSION}"
 
+# config.py ga REPORTS_DIR qismiga qo'shing:
+
 # ====================
 # PATHS
 # ====================
@@ -23,10 +25,29 @@ REPORTS_DIR = os.path.join(BASE_DIR, 'reports')
 # Create directories if not exist
 os.makedirs(REPORTS_DIR, exist_ok=True)
 os.makedirs(TOOLS_DIR, exist_ok=True)
+
+# Reports subdirectories
 os.makedirs(os.path.join(REPORTS_DIR, 'scanning'), exist_ok=True)
 os.makedirs(os.path.join(REPORTS_DIR, 'scanning', 'active'), exist_ok=True)
 os.makedirs(os.path.join(REPORTS_DIR, 'scanning', 'passive'), exist_ok=True)
 os.makedirs(os.path.join(REPORTS_DIR, 'information_gathering'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'vulnerability'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'vulnerability', 'web_scanner'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'vulnerability', 'sql_injection'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'vulnerability', 'xss_scanner'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'vulnerability', 'ssl_analyzer'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'vulnerability', 'cve_lookup'), exist_ok=True)
+
+# Exploitation reports (YANGI)
+os.makedirs(os.path.join(REPORTS_DIR, 'exploitation'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'exploitation', 'sqlmap'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'exploitation', 'reverse_shells'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'exploitation', 'payloads'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'exploitation', 'payloads', 'generated'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'exploitation', 'custom_exploits'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'exploitation', 'webshells'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'exploitation', 'webshells', 'generated'), exist_ok=True)
+os.makedirs(os.path.join(REPORTS_DIR, 'exploitation', 'password_cracking'), exist_ok=True)
 
 # ====================
 # API KEYS

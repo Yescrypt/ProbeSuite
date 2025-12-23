@@ -155,7 +155,7 @@ class LinkGopher:
     def save_report(self):
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         safe_domain = re.sub(r'[^\w\-]', '_', self.main_domain)
-        filename = f"information_gathering/linkgopher/linkgopher_{safe_domain}_{timestamp}"
+        filename = f"information_gathering/passive/linkgopher/linkgopher_{safe_domain}_{timestamp}"
 
         txt_path = os.path.join(REPORTS_DIR, f"{filename}.txt")
         with open(txt_path, "w", encoding="utf-8") as f:
