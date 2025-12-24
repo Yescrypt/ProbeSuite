@@ -559,36 +559,19 @@ class MainMenu:
     
     # ==================== POST EXPLOITATION ====================
     def post_exploitation_menu(self):
-        while True:
-            self.show_logo()
-            
-            Terminal.print_margin(f"{C_TITLE}┌─ POST EXPLOITATION ─────────────┐{C_RESET}")
-            Terminal.print_margin()
-            
-            items = [
-                ("1", "Privilege Escalation"),
-                ("2", "Data Extraction"),
-                ("3", "Persistence"),
-                ("4", "Lateral Movement"),
-                ("5", "Credential Harvesting"),
-            ]
-            
-            for num, name in items:
-                Terminal.print_margin(f"{C_INFO}  [{num}]  {name}{C_RESET}")
-            
-            Terminal.print_margin()
-            Terminal.print_margin(f"{C_WARN}  [0]  Back{C_RESET}")
-            Terminal.print_margin()
-            Terminal.print_margin(f"{C_TITLE}└────────────────────────────────┘{C_RESET}")
-            Terminal.print_margin()
-            
-            choice = InputValidator.get_choice()
-            
-            if choice == '0':
-                return
-            else:
-                Logger.warning("Post-exploitation module under development")
-                pause()
+        """Post Exploitation menu"""
+        try:
+            sys.path.insert(0, os.path.join(BASE_DIR, 'app', 'post_exploitation'))
+            from post_exploitation_menu import run_post_exploitation_menu
+            run_post_exploitation_menu()
+        except ImportError as e:
+            Logger.error(f"Post Exploitation menu module not found!")
+            Logger.warning(f"Error: {e}")
+            Logger.info("Please ensure post_exploitation_menu.py exists in app/post_exploitation/")
+            pause()
+        except Exception as e:
+            Logger.error(f"Error running post exploitation menu: {e}")
+            pause()
     
     # ==================== REPORTING ====================
     def reporting_menu(self):

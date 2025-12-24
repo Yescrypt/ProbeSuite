@@ -3,7 +3,8 @@
         "./app/scanning/active",
         "./app/scanning/passive",
         "./app/vulnerability",
-        "./app/exploitation"
+        "./app/exploitation",
+        "./app/post_exploitation"
     ],
     "python-envs.pythonProjects": []
 }
